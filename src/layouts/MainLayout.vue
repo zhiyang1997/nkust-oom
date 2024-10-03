@@ -8,10 +8,6 @@
       <div class="links-container">
         <ul class="link-list">
           <li class="link-item">
-            <q-icon name="home" color="primary" />
-            首頁
-          </li>
-          <li class="link-item">
             <q-icon name="star" color="primary" />學校首頁
           </li>
           <li class="link-item">
@@ -39,19 +35,61 @@
           flat
           no-border
           icon="menu"
-          style="font-size: 12px"
+          style="font-size: 14px"
           color="black"
         />
 
         <!-- 中間的導航欄清單 -->
         <ul class="nav-list">
-          <li class="nav-item" @click="handleClick('單位介紹')">單位介紹</li>
-          <li class="nav-item" @click="handleClick('最新消息')">最新消息</li>
-          <li class="nav-item" @click="handleClick('業務職掌')">業務職掌</li>
-          <li class="nav-item" @click="handleClick('法令規章')">法令規章</li>
-          <li class="nav-item" @click="handleClick('表單下載')">表單下載</li>
-          <li class="nav-item" @click="handleClick('相關連結')">相關連結</li>
-          <li class="nav-item" @click="handleClick('聯絡我們')">聯絡我們</li>
+          <li
+            class="nav-item"
+            @click="handleClick('單位介紹')"
+            style="font-size: medium; font-weight: bolder"
+          >
+            單位介紹
+          </li>
+          <li
+            class="nav-item"
+            @click="handleClick('最新消息')"
+            style="font-size: medium; font-weight: bolder"
+          >
+            最新消息
+          </li>
+          <li
+            class="nav-item"
+            @click="handleClick('業務職掌')"
+            style="font-size: medium; font-weight: bolder"
+          >
+            業務職掌
+          </li>
+          <li
+            class="nav-item"
+            @click="handleClick('法令規章')"
+            style="font-size: medium; font-weight: bolder"
+          >
+            法令規章
+          </li>
+          <li
+            class="nav-item"
+            @click="handleClick('表單下載')"
+            style="font-size: medium; font-weight: bolder"
+          >
+            表單下載
+          </li>
+          <li
+            class="nav-item"
+            @click="handleClick('相關連結')"
+            style="font-size: medium; font-weight: bolder"
+          >
+            相關連結
+          </li>
+          <li
+            class="nav-item"
+            @click="handleClick('聯絡我們')"
+            style="font-size: medium; font-weight: bolder"
+          >
+            聯絡我們
+          </li>
         </ul>
       </q-toolbar>
     </q-header>
@@ -82,7 +120,6 @@ function handleClick(label) {
   align-items: center;
   padding: 10px 0;
   background-color: white;
-  margin-bottom: 10px; /* 添加間距，避免和導航欄重疊 */
 }
 
 .logo-container {
@@ -106,7 +143,7 @@ function handleClick(label) {
 }
 
 .link-item {
-  margin-left: 20px;
+  margin-left: 30px;
   display: flex;
   align-items: center;
   cursor: pointer;
