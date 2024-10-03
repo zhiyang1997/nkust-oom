@@ -1,7 +1,7 @@
 <template>
   <q-layout view="hHh lpR fFf">
     <!-- 新增的圖片和鏈接區域 -->
-    <div class="header-top" style="width: 60%; margin: 0 auto">
+    <div class="header-top" style="width: 65%; margin: 0 auto">
       <div class="logo-container">
         <img src="src/img/nkust-oom.jpg" alt="NKUST Logo" class="logo" />
       </div>
@@ -11,7 +11,6 @@
             <q-icon name="home" color="primary" />
             首頁
           </li>
-
           <li class="link-item">
             <q-icon name="star" color="primary" />學校首頁
           </li>
@@ -29,7 +28,7 @@
     <q-header
       elevated
       class="header-container bg-grey-3"
-      style="width: 60%; margin: 0 auto; margin-top: 100px"
+      style="width: 65%; margin: 0 auto; margin-top: 100px"
     >
       <q-toolbar
         class="toolbar-container bg-grey-3"
@@ -56,6 +55,11 @@
         </ul>
       </q-toolbar>
     </q-header>
+
+    <!-- 插槽：在 bar 下面的區域插入內容 -->
+    <div style="width: 65%; margin: 0 auto; margin-top: 80px">
+      <slot></slot>
+    </div>
   </q-layout>
 </template>
 
@@ -135,7 +139,7 @@ function handleClick(label) {
 
 .q-toolbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
