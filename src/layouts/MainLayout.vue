@@ -96,7 +96,8 @@
 
     <!-- 插槽：在 bar 下面的區域插入內容 -->
     <div style="width: 65%; margin: 0 auto; margin-top: 80px">
-      <slot></slot>
+      <router-view />
+      <!-- <slot></slot> -->
     </div>
   </q-layout>
 </template>

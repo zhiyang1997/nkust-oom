@@ -1,11 +1,14 @@
 <template>
   <q-carousel
     v-model="slide"
-    animated
-    control-color="white"
-    arrow-control
-    infinite
+    transition-prev="scale"
+    transition-next="scale"
     swipeable
+    animated
+    control-color="blue"
+    navigation
+    arrows
+    infinite
     class="carousel-container"
     control-type="dots"
   >
