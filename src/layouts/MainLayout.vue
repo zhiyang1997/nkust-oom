@@ -98,12 +98,14 @@
     <div style="width: 65%; margin: 0 auto; margin-top: 80px">
       <router-view />
       <!-- <slot></slot> -->
+      <Footer />
     </div>
   </q-layout>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import Footer from "./Footer.vue";
 
 const tab = ref("單位介紹");
 
