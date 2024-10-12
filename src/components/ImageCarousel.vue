@@ -5,12 +5,14 @@
     transition-next="scale"
     swipeable
     animated
-    control-color="blue"
+    control-color="grey"
     navigation
     arrows
     infinite
     class="carousel-container"
     control-type="dots"
+    autoplay
+    :autoplay-interval="5000"
   >
     <q-carousel-slide
       v-for="(img, index) in images"
@@ -48,5 +50,15 @@ const images = [
   background-position: center; /* 確保圖片居中顯示 */
   background-repeat: no-repeat; /* 防止圖片重複 */
   height: 100%; /* 讓圖片高度跟隨容器高度變化 */
+}
+
+/* 調整左右箭頭的大小 */
+.q-carousel__arrow {
+  font-size: 20px; /* 調整箭頭大小，根據需要可以更小或更大 */
+}
+
+/* 調整點之間的間距 */
+.q-carousel__control-container {
+  margin: 5px 0; /* 控制點的上下間距 */
 }
 </style>
