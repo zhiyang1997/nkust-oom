@@ -21,7 +21,7 @@
     </div>
 
     <!-- 原本的 bar 區域 -->
-    <q-header
+    <q-page-container
       elevated
       class="header-container bg-grey-3"
       style="width: 65%; margin: 0 auto; margin-top: 5%"
@@ -76,7 +76,7 @@
           </li>
         </ul>
       </q-toolbar>
-    </q-header>
+    </q-page-container>
 
     <!-- 插槽：在 bar 下面的區域插入內容 -->
     <div style="width: 65%; margin: 0 auto; margin-top: 5%">
@@ -103,9 +103,8 @@ const navItems = ref([
     label: "單位介紹",
     route: "/introduction",
     subItems: [
-      { label: "簡介", route: "/introduction/overview" },
-      { label: "歷史", route: "/introduction/history" },
-      { label: "團隊", route: "/introduction/team" },
+      { label: "關於本處", route: "/introduction/overview" },
+      { label: "組織架構", route: "/introduction/structure" },
     ],
   },
   { label: "最新消息", route: "/news" },
@@ -113,16 +112,17 @@ const navItems = ref([
     label: "業務職掌",
     route: "/services",
     subItems: [
-      { label: "服務項目", route: "/services/projects" },
-      { label: "政策", route: "/services/policies" },
+      { label: "處本部", route: "/services/headquarters" },
+      { label: "規劃評估組", route: "/services/plan" },
+      { label: "開發活化組", route: "/services/develop" },
     ],
   },
   {
     label: "法令規章",
     route: "/regulations",
     subItems: [
-      { label: "相關法令", route: "/regulations/laws" },
-      { label: "規章說明", route: "/regulations/rules" },
+      { label: "財政部", route: "/regulations/mof" },
+      { label: "本機關", route: "/regulations/agency" },
     ],
   },
   { label: "表單下載", route: "/downloads" },
