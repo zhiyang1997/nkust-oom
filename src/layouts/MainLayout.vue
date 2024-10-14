@@ -24,7 +24,7 @@
     <q-header
       elevated
       class="header-container bg-grey-3"
-      style="width: 65%; margin: 0 auto; margin-top: 100px"
+      style="width: 65%; margin: 0 auto; margin-top: 5%"
     >
       <q-toolbar
         class="toolbar-container bg-grey-3"
@@ -95,18 +95,19 @@
     </q-header>
 
     <!-- 插槽：在 bar 下面的區域插入內容 -->
-    <div style="width: 65%; margin: 0 auto; margin-top: 80px">
+    <div style="width: 65%; margin: 0 auto; margin-top: 5%">
       <router-view />
       <!-- <slot></slot> -->
-      <Footer />
     </div>
+    <NewsCompontent />
+    <Footer></Footer>
   </q-layout>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import Footer from "./Footer.vue";
-
+import NewsCompontent from "src/components/NewsCompontent.vue";
 const tab = ref("單位介紹");
 
 function handleClick(label) {
