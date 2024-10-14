@@ -42,53 +42,37 @@
         <!-- 中間的導航欄清單 -->
         <ul class="nav-list">
           <li
+            v-for="(item, index) in navItems"
+            :key="index"
             class="nav-item"
-            @click="handleClick('單位介紹')"
+            @mouseenter="openMenu(index)"
+            @mouseleave="closeMenu(index)"
+            @click="!item.subItems && navigateTo(item.route)"
             style="font-size: medium; font-weight: bolder"
           >
-            單位介紹
-          </li>
-          <li
-            class="nav-item"
-            @click="handleClick('最新消息')"
-            style="font-size: medium; font-weight: bolder"
-          >
-            最新消息
-          </li>
-          <li
-            class="nav-item"
-            @click="handleClick('業務職掌')"
-            style="font-size: medium; font-weight: bolder"
-          >
-            業務職掌
-          </li>
-          <li
-            class="nav-item"
-            @click="handleClick('法令規章')"
-            style="font-size: medium; font-weight: bolder"
-          >
-            法令規章
-          </li>
-          <li
-            class="nav-item"
-            @click="handleClick('表單下載')"
-            style="font-size: medium; font-weight: bolder"
-          >
-            表單下載
-          </li>
-          <li
-            class="nav-item"
-            @click="handleClick('相關連結')"
-            style="font-size: medium; font-weight: bolder"
-          >
-            相關連結
-          </li>
-          <li
-            class="nav-item"
-            @click="handleClick('聯絡我們')"
-            style="font-size: medium; font-weight: bolder"
-          >
-            聯絡我們
+            {{ item.label }}
+
+            <q-menu
+              v-if="item.subItems"
+              v-model="menus[index]"
+              transition-show="scale"
+              transition-hide="scale"
+              style="min-width: 150px"
+              @mouseenter="keepMenuOpen(index)"
+              @mouseleave="closeMenu(index)"
+            >
+              <q-list>
+                <q-item
+                  clickable
+                  v-close-popup
+                  v-for="(subItem, subIndex) in item.subItems"
+                  :key="subIndex"
+                  @click="navigateTo(subItem.route)"
+                >
+                  <q-item-section>{{ subItem.label }}</q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
           </li>
         </ul>
       </q-toolbar>
@@ -106,14 +90,70 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import Footer from "./Footer.vue";
 import NewsCompontent from "src/components/NewsCompontent.vue";
-const tab = ref("單位介紹");
 
-function handleClick(label) {
-  tab.value = label;
-  console.log(`You clicked: ${label}`);
-}
+// 使用 Vue Router 來進行導航
+const router = useRouter();
+
+// 導航項目，每個項目可以有下拉選單內容，並包含導航路徑
+const navItems = ref([
+  {
+    label: "單位介紹",
+    route: "/introduction",
+    subItems: [
+      { label: "簡介", route: "/introduction/overview" },
+      { label: "歷史", route: "/introduction/history" },
+      { label: "團隊", route: "/introduction/team" },
+    ],
+  },
+  { label: "最新消息", route: "/news" },
+  {
+    label: "業務職掌",
+    route: "/services",
+    subItems: [
+      { label: "服務項目", route: "/services/projects" },
+      { label: "政策", route: "/services/policies" },
+    ],
+  },
+  {
+    label: "法令規章",
+    route: "/regulations",
+    subItems: [
+      { label: "相關法令", route: "/regulations/laws" },
+      { label: "規章說明", route: "/regulations/rules" },
+    ],
+  },
+  { label: "表單下載", route: "/downloads" },
+  { label: "相關連結", route: "/links" },
+  { label: "聯絡我們", route: "/contact" },
+]);
+
+// 控制每個下拉選單是否顯示
+const menus = ref(Array(navItems.value.length).fill(false));
+
+// 開啟指定索引的下拉選單
+const openMenu = (index) => {
+  menus.value[index] = true;
+};
+
+// 關閉指定索引的下拉選單
+const closeMenu = (index) => {
+  menus.value[index] = false;
+};
+
+// 讓下拉選單在鼠標懸停時保持顯示
+const keepMenuOpen = (index) => {
+  menus.value[index] = true;
+};
+
+// 導航至指定路徑
+const navigateTo = (route) => {
+  if (route) {
+    router.push(route);
+  }
+};
 </script>
 
 <style scoped>
