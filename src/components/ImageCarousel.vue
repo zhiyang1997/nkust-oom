@@ -5,8 +5,9 @@
     navigation
     infinite
     :autoplay="autoplay"
+    :autoplay-interval="autoplayInterval"
     arrows
-    controlColor="grey"
+    control-color="grey"
     height="250px"
     transition-prev="slide-right"
     transition-next="slide-left"
@@ -29,19 +30,16 @@ import { ref } from "vue";
 
 const slide = ref(0); // 控制當前顯示的輪播圖片索引
 
+const autoplayInterval = ref(3000); // 自動播放間隔，單位為毫秒
+const autoplay = ref(true); // 是否啟動自動播放
+
 // 定義圖片列表
 const images = [
   { src: "src/img/carousel1.jpg" },
   { src: "src/img/carousel2.jpg" },
   { src: "src/img/carousel3.jpg" },
+  { src: "src/img/carousel3.jpg" },
 ];
 </script>
 
-<style scoped>
-.q-carousel_arrow {
-  font-size: 16px !important;
-  color: red !important; /* 更改箭頭顏色 */
-  background-color: rgba(0, 0, 0, 0.5) !important; /* 更改箭頭背景 */
-  border-radius: 50%; /* 讓箭頭背景變成圓形 */
-}
-</style>
+<style scoped></style>
