@@ -85,11 +85,11 @@
     </q-page-container>
 
     <!-- 插槽：在 bar 下面的區域插入內容 -->
-    <div style="width: 65%; margin: 0 auto; margin-top: 2%">
-      <router-view />
-      <!-- <slot></slot> -->
-    </div>
-    <NewsCompontent />
+    <!-- <div style="width: 65%; margin: 0 auto; margin-top: 2%"> -->
+    <!-- <slot></slot> -->
+    <!-- </div> -->
+
+    <router-view />
     <Footer></Footer>
   </q-layout>
 </template>
@@ -98,7 +98,6 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import Footer from "./Footer.vue";
-import NewsCompontent from "src/components/NewsCompontent.vue";
 
 // 使用 Vue Router 來進行導航
 const router = useRouter();
