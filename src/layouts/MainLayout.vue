@@ -24,7 +24,7 @@
     <q-page-container
       elevated
       class="header-container bg-grey-3"
-      style="width: 65%; margin: 0 auto; margin-top: 5%"
+      style="width: 65%; margin: 0 auto"
     >
       <q-toolbar
         class="toolbar-container bg-grey-3"
@@ -79,7 +79,7 @@
     </q-page-container>
 
     <!-- 插槽：在 bar 下面的區域插入內容 -->
-    <div style="width: 65%; margin: 0 auto; margin-top: 5%">
+    <div style="width: 65%; margin: 0 auto; margin-top: 2%">
       <router-view />
       <!-- <slot></slot> -->
     </div>
@@ -133,18 +133,26 @@ const navItems = ref([
 // 控制每個下拉選單是否顯示
 const menus = ref(Array(navItems.value.length).fill(false));
 
+let closeTimeout = null;
 // 開啟指定索引的下拉選單
 const openMenu = (index) => {
+  clearTimeout(closeTimeout); // 清除任何之前設置的關閉延遲
+
+  // 關閉所有其他選單
+  menus.value = menus.value.map((_, i) => i === index);
   menus.value[index] = true;
 };
 
-// 關閉指定索引的下拉選單
+// 延遲關閉指定索引的下拉選單
 const closeMenu = (index) => {
-  menus.value[index] = false;
+  closeTimeout = setTimeout(() => {
+    menus.value[index] = false;
+  }, 100); // 延遲200ms關閉
 };
 
 // 讓下拉選單在鼠標懸停時保持顯示
 const keepMenuOpen = (index) => {
+  clearTimeout(closeTimeout); // 當滑鼠進入時清除關閉延遲
   menus.value[index] = true;
 };
 

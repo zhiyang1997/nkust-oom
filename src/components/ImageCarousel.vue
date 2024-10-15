@@ -40,9 +40,8 @@ const images = [
 
 <style scoped>
 .carousel-container {
-  width: 95%; /* 確保輪播容器寬度佔滿父容器 */
-  margin: 0 auto;
-  height: 200px; /* 設置輪播圖片的高度，根據需求可以調整 */
+  width: 100%; /* 確保輪播容器寬度佔滿父容器 */
+  height: 250px; /* 設置輪播圖片的高度，根據需求可以調整 */
 }
 
 .q-carousel-slide {
