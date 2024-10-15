@@ -3,7 +3,12 @@
     <!-- 新增的圖片和鏈接區域 -->
     <div class="header-top" style="width: 65%; margin: 0 auto">
       <div class="logo-container">
-        <img src="src/img/nkust-oom.jpg" alt="NKUST Logo" class="logo" />
+        <img
+          src="src/img/nkust-oom.jpg"
+          alt="NKUST Logo"
+          class="logo"
+          @click="navigateTo()"
+        />
       </div>
       <div class="links-container">
         <ul class="link-list">
@@ -164,6 +169,8 @@ const keepMenuOpen = (index) => {
 const navigateTo = (route) => {
   if (route) {
     router.push(route);
+  } else {
+    router.push("/");
   }
 };
 
