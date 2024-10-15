@@ -1,18 +1,17 @@
 <template>
   <q-carousel
-    v-model="slide"
-    transition-prev="scale"
-    transition-next="scale"
-    swipeable
     animated
-    control-color="grey"
+    v-model="slide"
     navigation
-    arrows
     infinite
-    class="carousel-container"
-    control-type="regular"
-    autoplay
-    :autoplay-interval="5000"
+    :autoplay="autoplay"
+    arrows
+    controlColor="grey"
+    height="250px"
+    transition-prev="slide-right"
+    transition-next="slide-left"
+    @mouseenter="autoplay = false"
+    @mouseleave="autoplay = true"
   >
     <q-carousel-slide
       v-for="(img, index) in images"
@@ -39,25 +38,10 @@ const images = [
 </script>
 
 <style scoped>
-.carousel-container {
-  width: 100%; /* 確保輪播容器寬度佔滿父容器 */
-  height: 250px; /* 設置輪播圖片的高度，根據需求可以調整 */
-}
-
-.q-carousel-slide {
-  background-size: contain; /* 確保背景圖片根據容器大小縮放，保持比例 */
-  background-position: center; /* 確保圖片居中顯示 */
-  background-repeat: no-repeat; /* 防止圖片重複 */
-  height: 100%; /* 讓圖片高度跟隨容器高度變化 */
-}
-
-/* 調整左右箭頭的大小 */
-.q-carousel__arrow {
-  font-size: 20px; /* 調整箭頭大小，根據需要可以更小或更大 */
-}
-
-/* 調整點之間的間距 */
-.q-carousel__control-container {
-  margin: 5px 0; /* 控制點的上下間距 */
+.q-carousel_arrow {
+  font-size: 16px !important;
+  color: red !important; /* 更改箭頭顏色 */
+  background-color: rgba(0, 0, 0, 0.5) !important; /* 更改箭頭背景 */
+  border-radius: 50%; /* 讓箭頭背景變成圓形 */
 }
 </style>
