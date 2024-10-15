@@ -10,7 +10,7 @@
     arrows
     infinite
     class="carousel-container"
-    control-type="dots"
+    control-type="regular"
     autoplay
     :autoplay-interval="5000"
   >
