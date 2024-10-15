@@ -146,14 +146,13 @@ const openMenu = (index) => {
 
   // 關閉所有其他選單
   menus.value = menus.value.map((_, i) => i === index);
-  menus.value[index] = true;
 };
 
 // 延遲關閉指定索引的下拉選單
 const closeMenu = (index) => {
   closeTimeout = setTimeout(() => {
     menus.value[index] = false;
-  }, 100); // 延遲200ms關閉
+  }, 100); // 延遲100ms關閉
 };
 
 // 讓下拉選單在鼠標懸停時保持顯示
