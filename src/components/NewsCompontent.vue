@@ -1,27 +1,25 @@
 <template>
-  <q-layout view="hHh lpR fFf">
-    <q-page-container>
-      <q-page class="news-container" style="width: 65%; margin: 0% auto">
-        <div class="news-title">
-          <h4>最新消息</h4>
-          <p>················</p>
-        </div>
-        <!-- 最新消息區域 -->
-        <div class="news-list">
-          <div class="news-item" v-for="(item, index) in news" :key="index">
-            <div class="news-photo">
-              <img
-                :src="getImageUrl(item.photo)"
-                alt="News Image"
-                class="news-image"
-              />
-            </div>
-            <div class="news-index">{{ item.title }}</div>
+  <q-page-container>
+    <q-page class="news-container" style="width: 65%; margin: 0% auto">
+      <div class="news-title">
+        <h4>最新消息</h4>
+        <p>················</p>
+      </div>
+      <!-- 最新消息區域 -->
+      <div class="news-list">
+        <div class="news-item" v-for="(item, index) in news" :key="index">
+          <div class="news-photo">
+            <img
+              :src="getImageUrl(item.photo)"
+              alt="News Image"
+              class="news-image"
+            />
           </div>
+          <div class="news-index">{{ item.title }}</div>
         </div>
-      </q-page>
-    </q-page-container>
-  </q-layout>
+      </div>
+    </q-page>
+  </q-page-container>
 </template>
 
 <script>
