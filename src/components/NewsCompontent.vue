@@ -4,7 +4,7 @@
       <q-page class="news-container" style="width: 65%; margin: 0% auto">
         <div class="news-title">
           <h4>最新消息</h4>
-          <p>··········</p>
+          <p>················</p>
         </div>
         <!-- 最新消息區域 -->
         <div class="news-list">
@@ -16,7 +16,7 @@
                 class="news-image"
               />
             </div>
-            <div class="news-title">{{ item.title }}</div>
+            <div class="news-index">{{ item.title }}</div>
           </div>
         </div>
       </q-page>
@@ -86,18 +86,26 @@ export default {
   border-radius: 10px; /* 圓角 */
 }
 
-.news-title {
-  flex: 1;
-  color: #343a40;
-  font-size: 18px; /* 增加字體大小 */
-  font-weight: bold; /* 設置字體為粗體 */
-}
-
 .news-item:last-child {
   border-bottom: none;
 }
 
+.news-index {
+  flex: 1;
+  color: #343a40;
+  font-size: 18px; /* 增加字體大小 */
+  font-weight: bold; /* 設置字體為粗體 */
+  display: flex;
+  flex-direction: column; /* 垂直排列元素 */
+  justify-content: center; /* 垂直居中 */
+  align-items: l; /* 水平居中 */
+  text-align: left; /* 保證文本居中 */
+}
+
 .news-title {
+  flex: 1;
+  color: #343a40;
+  font-weight: bold; /* 設置字體為粗體 */
   display: flex;
   flex-direction: column; /* 垂直排列元素 */
   justify-content: center; /* 垂直居中 */
