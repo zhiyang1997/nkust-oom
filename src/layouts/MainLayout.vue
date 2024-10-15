@@ -53,7 +53,7 @@
             class="nav-item"
             @mouseenter="openMenu(index)"
             @mouseleave="closeMenu(index)"
-            @click="!item.subItems && navigateTo(item.route)"
+            @click="navigateTo(item.route)"
             style="font-size: medium; font-weight: bolder"
           >
             {{ item.label }}
