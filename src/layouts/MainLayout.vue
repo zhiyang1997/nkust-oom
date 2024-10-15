@@ -7,15 +7,21 @@
       </div>
       <div class="links-container">
         <ul class="link-list">
-          <li class="link-item">
-            <q-icon name="star" color="primary" />學校首頁
+          <li
+            class="link-item"
+            @click="hyperlinkTo('https://www.nkust.edu.tw/index.php')"
+          >
+            學校首頁
           </li>
-          <li class="link-item">
-            <q-icon name="star" color="primary" />校務系統
+          <li
+            class="link-item"
+            @click="hyperlinkTo('https://webap0.nkust.edu.tw/nkust/')"
+          >
+            校務系統
           </li>
-          <li class="link-item">
+          <!-- <li class="link-item">
             <q-icon name="star" color="primary" />後臺管理
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -57,9 +63,9 @@
               v-model="menus[index]"
               transition-show="scale"
               transition-hide="scale"
-              style="min-width: 150px"
               @mouseenter="keepMenuOpen(index)"
               @mouseleave="closeMenu(index)"
+              style="width: 8em"
             >
               <q-list>
                 <q-item
@@ -162,6 +168,10 @@ const navigateTo = (route) => {
     router.push(route);
   }
 };
+
+const hyperlinkTo = (url) => {
+  window.open(url, "_blank");
+};
 </script>
 
 <style scoped>
@@ -179,30 +189,50 @@ const navigateTo = (route) => {
 }
 
 .logo {
-  height: 80px; /* 控制 logo 的大小 */
+  height: auto; /* 控制 logo 的大小 */
+  width: 50%;
 }
 
 .links-container {
-  flex: 1;
-  text-align: right;
+  display: flex; /* 使用 Flexbox 來進行佈局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
 }
 
 .link-list {
-  display: flex;
-  list-style-type: none;
+  list-style-type: none; /* 去除 ul 的原點樣式 */
   padding: 0;
   margin: 0;
+  display: flex; /* 使用 Flexbox 讓項目水平排列 */
 }
 
 .link-item {
-  margin-left: 30px;
+  margin: 0 15px; /* 控制每個項目之間的水平間距 */
   display: flex;
   align-items: center;
   cursor: pointer;
+  position: relative; /* 為 ::after 定位準備 */
+  font-size: 18px;
+  color: #4682b4;
+  font-weight: bolder;
 }
 
-.link-item q-icon {
-  margin-right: 5px; /* 圖標和文字之間的間距 */
+.link-item::after {
+  content: "";
+  position: absolute;
+  right: -16px; /* 調整分隔線的位置 */
+  top: 50%;
+  transform: translateY(-50%); /* 垂直居中 */
+  width: 2px;
+  height: 100%; /* 調整分隔線的高度 */
+  background-color: #4682b4; /* 直線顏色 */
+}
+
+.link-item:last-child::after {
+  content: none; /* 移除最後一個項目的分隔線 */
+}
+.link-item:hover {
+  color: #5c5c5c;
 }
 
 /* 原本導航欄樣式 */

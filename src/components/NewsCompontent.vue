@@ -2,6 +2,10 @@
   <q-layout view="hHh lpR fFf">
     <q-page-container>
       <q-page class="news-container" style="width: 65%; margin: 0% auto">
+        <div class="news-title">
+          <h4>最新消息</h4>
+          <p>··········</p>
+        </div>
         <!-- 最新消息區域 -->
         <div class="news-list">
           <div class="news-item" v-for="(item, index) in news" :key="index">
@@ -60,6 +64,7 @@ export default {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 4px solid #ddd; /* 添加2px的灰色邊框 */
 }
 
 .news-item {
@@ -90,5 +95,22 @@ export default {
 
 .news-item:last-child {
   border-bottom: none;
+}
+
+.news-title {
+  display: flex;
+  flex-direction: column; /* 垂直排列元素 */
+  justify-content: center; /* 垂直居中 */
+  align-items: center; /* 水平居中 */
+  text-align: center; /* 保證文本居中 */
+}
+.news-title h4 {
+  margin-bottom: 5px; /* 調整 h4 底部的外邊距 */
+  font-weight: bolder;
+}
+
+.news-title p {
+  margin-top: 2px; /* 調整 p 元素的頂部外邊距 */
+  font-weight: bolder;
 }
 </style>
