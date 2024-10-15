@@ -22,33 +22,29 @@
   </q-page-container>
 </template>
 
-<script>
-export default {
-  name: "NewsComponent",
-  data() {
-    return {
-      news: [
-        {
-          photo: "carousel1.jpg", // 確保圖片文件存在於 src/assets 資料夾
-          title: "113-1學期 EMI TA培訓開始報名囉！",
-        },
-        {
-          photo: "carousel2.jpg", // 這裡可以更改為不同圖片的文件名
-          title: "【113-1Workshop】教學實踐計畫經驗分享",
-        },
-        {
-          photo: "carousel3.jpg", // 指向正確的圖片文件
-          title: "國立臺灣科技大學EMI教學資源中心辦理 EMI培訓",
-        },
-      ],
-    };
+<script setup>
+import { reactive } from "vue";
+
+// 定義 news 資料
+const news = reactive([
+  {
+    photo: "carousel1.jpg", // 確保圖片文件存在於 src/assets 資料夾
+    title: "113-1學期 EMI TA培訓開始報名囉！",
   },
-  methods: {
-    getImageUrl(photo) {
-      // 使用 import.meta.url 來動態載入圖片資源
-      return new URL(`../img/${photo}`, import.meta.url).href;
-    },
+  {
+    photo: "carousel2.jpg", // 這裡可以更改為不同圖片的文件名
+    title: "【113-1Workshop】教學實踐計畫經驗分享",
   },
+  {
+    photo: "carousel3.jpg", // 指向正確的圖片文件
+    title: "國立臺灣科技大學EMI教學資源中心辦理 EMI培訓",
+  },
+]);
+
+// 定義 getImageUrl 方法
+const getImageUrl = (photo) => {
+  // 使用 import.meta.url 來動態載入圖片資源
+  return new URL(`../img/${photo}`, import.meta.url).href;
 };
 </script>
 

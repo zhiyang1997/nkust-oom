@@ -95,14 +95,14 @@
     <!-- </div> -->
 
     <router-view />
-    <Footer></Footer>
+    <FooterComponent></FooterComponent>
   </q-layout>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import Footer from "./Footer.vue";
+import FooterComponent from "./FooterComponent.vue";
 
 // 使用 Vue Router 來進行導航
 const router = useRouter();
