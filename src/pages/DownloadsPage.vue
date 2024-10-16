@@ -1,6 +1,6 @@
 <template>
   <q-page-container>
-    <q-page class="news-container" style="width: 65%; margin: 0% auto">
+    <q-page class="download-container" style="width: 65%; margin: 0% auto">
       <q-toolbar class="bg-grey-3 full-width">
         <q-btn flat @click="navigateTo()" class="text-bold" label="首頁" />
         <span class="separator">/</span>
@@ -12,7 +12,7 @@
         />
       </q-toolbar>
       <!--表單下載 Title-->
-      <div class="news-title">
+      <div class="download-title">
         <h4>表單下載</h4>
         <p>················</p>
       </div>
@@ -61,11 +61,11 @@ const navigateTo = (route) => {
 </script>
 
 <style scoped>
-.news-container {
+.download-container {
   padding: 20px;
 }
 
-.news-title {
+.download-title {
   flex: 1;
   color: #343a40;
   font-weight: bold; /* 設置字體為粗體 */
@@ -75,12 +75,12 @@ const navigateTo = (route) => {
   align-items: center; /* 水平居中 */
   text-align: center; /* 保證文本居中 */
 }
-.news-title h4 {
+.download-title h4 {
   margin-bottom: 5px; /* 調整 h4 底部的外邊距 */
   font-weight: bolder;
 }
 
-.news-title p {
+.download-title p {
   margin-top: 2px; /* 調整 p 元素的頂部外邊距 */
   font-weight: bolder;
 }

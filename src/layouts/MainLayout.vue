@@ -111,16 +111,14 @@ const router = useRouter();
 const navItems = ref([
   {
     label: "單位介紹",
-    route: "/introduction",
     subItems: [
-      { label: "關於本處", route: "/introduction/overview" },
-      { label: "組織架構", route: "/introduction/structure" },
+      { label: "關於本處", route: "/overview" },
+      { label: "組織架構", route: "/structure" },
     ],
   },
   { label: "最新消息", route: "/news" },
   {
     label: "業務職掌",
-    route: "/services",
     subItems: [
       { label: "處本部", route: "/services/headquarters" },
       { label: "規劃評估組", route: "/services/plan" },
@@ -129,7 +127,6 @@ const navItems = ref([
   },
   {
     label: "法令規章",
-    route: "/regulations",
     subItems: [
       { label: "財政部", route: "/regulations/mof" },
       { label: "本機關", route: "/regulations/agency" },

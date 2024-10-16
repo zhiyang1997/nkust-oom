@@ -8,6 +8,14 @@ const routes = [
         path: "downloads",
         component: () => import("src/pages/DownloadsPage.vue"),
       },
+      {
+        path: "overview",
+        component: () => import("src/pages/OverviewPage.vue"),
+      },
+      {
+        path: "structure",
+        component: () => import("src/pages/StructurePage.vue"),
+      },
     ],
   },
 
