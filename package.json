@@ -13,6 +13,10 @@
     "build": "quasar build"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-regular-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
     "@quasar/extras": "^1.16.4",
     "axios": "^1.2.1",
     "leaflet": "^1.9.4",
