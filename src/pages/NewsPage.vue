@@ -26,8 +26,6 @@ const router = useRouter();
 
 // 導航至指定路徑
 const navigateTo = (route) => {
-  console.log(123);
-
   if (route) {
     router.push(route);
   } else {

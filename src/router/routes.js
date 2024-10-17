@@ -20,6 +20,14 @@ const routes = [
         path: "news",
         component: () => import("src/pages/NewsPage.vue"),
       },
+      {
+        path: "links",
+        component: () => import("src/pages/LinksPage.vue"),
+      },
+      {
+        path: "contact",
+        component: () => import("src/pages/ContactPage.vue"),
+      },
     ],
   },
 
