@@ -14,7 +14,7 @@
 
 <style scoped>
 .footer-section {
-  background-color: #778899; /* 頁腳的背景色 */
+  background-color: #5c5c5c; /* 頁腳的背景色 */
   color: white;
   position: relative;
   text-align: center;

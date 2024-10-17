@@ -1,7 +1,7 @@
 <template>
   <q-page-container>
     <q-page class="news-container">
-      <q-toolbar class="bg-grey-3 full-width">
+      <q-toolbar class="bg-grey-3" style="width: 64.3%; margin: auto">
         <q-btn flat @click="navigateTo()" class="text-bold" label="首頁" />
         <span class="separator">/</span>
         <q-btn
@@ -39,8 +39,6 @@ const navigateTo = (route) => {
 <style scoped>
 .news-container {
   padding: 20px;
-  width: 65%;
-  margin: 0% auto;
 }
 
 .separator {
