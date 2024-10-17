@@ -126,7 +126,7 @@ const navigateTo = (route) => {
 .org-branches {
   display: flex;
   justify-content: center;
-  gap: 15%; /* 控制兩個分支之間的距離 */
+  gap: 10%; /* 控制兩個分支之間的距離 */
   width: 80%;
   position: relative;
   margin-top: 2%; /* 增加與上面元素的間距 */

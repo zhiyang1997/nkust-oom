@@ -1,17 +1,53 @@
 <template>
-  <!-- 插槽：在 bar 下面的區域插入內容 -->
-  <div style="width: 65%; margin: 0 auto; margin-top: 2%">
-    <!-- <slot></slot> -->
-    <!-- 將輪播圖片作為內容插入 -->
-    <ImageCarousel />
-  </div>
-
-  <NewsCompontent />
+  <q-page-container>
+    <q-page class="news-container">
+      <q-toolbar class="bg-grey-3 full-width">
+        <q-btn flat @click="navigateTo()" class="text-bold" label="首頁" />
+        <span class="separator">/</span>
+        <q-btn
+          flat
+          @click="navigateTo('news')"
+          class="text-bold"
+          label="最新消息"
+        />
+      </q-toolbar>
+      <!--表單下載 Title-->
+      <NewsCompontent />
+    </q-page>
+  </q-page-container>
 </template>
 
 <script setup>
-import ImageCarousel from "../components/ImageCarousel.vue"; // 引入輪播圖片元件
 import NewsCompontent from "src/components/NewsCompontent.vue";
+import { useRouter } from "vue-router";
+
+// 使用 Vue Router 來進行導航
+const router = useRouter();
+
+// 導航至指定路徑
+const navigateTo = (route) => {
+  console.log(123);
+
+  if (route) {
+    router.push(route);
+  } else {
+    router.push("/");
+  }
+};
 </script>
 
-<style scoped></style>
+<style scoped>
+.news-container {
+  padding: 20px;
+  width: 65%;
+  margin: 0% auto;
+}
+
+.separator {
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center; /* 確保 / 符號和按鈕對齊 */
+}
+</style>

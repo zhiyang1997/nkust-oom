@@ -24,9 +24,7 @@
           >
             校務系統
           </li>
-          <!-- <li class="link-item">
-            <q-icon name="star" color="primary" />後臺管理
-          </li> -->
+          <li class="link-item">後臺管理</li>
         </ul>
       </div>
     </div>
@@ -59,7 +57,7 @@
             @mouseenter="openMenu(index)"
             @mouseleave="closeMenu(index)"
             @click="navigateTo(item.route)"
-            style="font-size: medium; font-weight: bolder"
+            style="font-size: large; font-weight: bolder"
           >
             {{ item.label }}
 
@@ -111,6 +109,7 @@ const router = useRouter();
 const navItems = ref([
   {
     label: "單位介紹",
+    route: "/introduction",
     subItems: [
       { label: "關於本處", route: "/overview" },
       { label: "組織架構", route: "/structure" },
@@ -212,29 +211,26 @@ const hyperlinkTo = (url) => {
   margin: 0 15px; /* 控制每個項目之間的水平間距 */
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   position: relative; /* 為 ::after 定位準備 */
-  font-size: 18px;
-  color: #4682b4;
+  font-size: 16px;
+  color: white;
   font-weight: bolder;
-}
-
-.link-item::after {
-  content: "";
-  position: absolute;
-  right: -16px; /* 調整分隔線的位置 */
-  top: 50%;
-  transform: translateY(-50%); /* 垂直居中 */
-  width: 2px;
-  height: 100%; /* 調整分隔線的高度 */
-  background-color: #4682b4; /* 直線顏色 */
+  background-color: #5c5c5c; /* 背景顏色 */
+  padding: 5px 20px; /* 調整內部間距 */
+  border-radius: 50px; /* 使按鈕變為橢圓形 */
+  transition: background-color 0.3s, color 0.3s; /* 平滑過渡效果 */
+  text-align: center;
 }
 
 .link-item:last-child::after {
   content: none; /* 移除最後一個項目的分隔線 */
 }
+
 .link-item:hover {
-  color: #5c5c5c;
+  background-color: #4682b4; /* 懸停時的背景顏色 */
+  color: white; /* 懸停時字體顏色 */
 }
 
 /* 原本導航欄樣式 */
