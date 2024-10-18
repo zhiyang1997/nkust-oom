@@ -13,7 +13,7 @@
         <span class="separator">/</span>
         <q-btn
           flat
-          @click="navigateTo('overview')"
+          @click="navigateTo('introduction/overview')"
           class="text-bold"
           label="關於本處"
         />
@@ -54,7 +54,7 @@ const aboutInfo = reactive([
 // 導航至指定路徑
 const navigateTo = (route) => {
   if (route) {
-    router.push(route);
+    router.push(`/${route}`); // 使用絕對路徑，避免重複拼接
   } else {
     router.push("/");
   }

@@ -6,30 +6,30 @@
         <span class="separator">/</span>
         <q-btn
           flat
-          @click="navigateTo('introduction')"
+          @click="navigateTo('regulations')"
           class="text-bold"
-          label="單位介紹"
+          label="法令規章"
         />
       </q-toolbar>
 
-      <!--單位介紹 Title-->
+      <!--法令規章 Title-->
       <div class="introduction-title">
-        <h4>單位介紹</h4>
+        <h4>法令規章</h4>
         <p>················</p>
       </div>
 
       <!-- 兩個方塊區域 -->
       <div class="introduction-list">
-        <!-- 左邊方塊 - 關於本處 -->
+        <!-- 左邊方塊 - 財政部 -->
         <div class="introduction-item">
           <q-icon name="info" color="grey" style="margin-right: 20px" />
-          <a href="/introduction/overview">關於本處</a>
+          <a href="/regulations/mof">財政部</a>
         </div>
 
-        <!-- 右邊方塊 - 組織架構 -->
+        <!-- 右邊方塊 - 本機關 -->
         <div class="introduction-item">
           <q-icon name="account_tree" color="grey" style="margin-right: 20px" />
-          <a href="/introduction/structure">組織架構</a>
+          <a href="/regulations/agency">本機關</a>
         </div>
       </div>
     </q-page>

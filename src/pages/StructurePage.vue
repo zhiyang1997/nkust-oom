@@ -13,7 +13,7 @@
         <span class="separator">/</span>
         <q-btn
           flat
-          @click="navigateTo('structure')"
+          @click="navigateTo('introduction/structure')"
           class="text-bold"
           label="組織架構"
         />
@@ -66,7 +66,7 @@ const router = useRouter();
 // 導航至指定路徑
 const navigateTo = (route) => {
   if (route) {
-    router.push(route);
+    router.push(`/${route}`); // 使用絕對路徑，避免重複拼接
   } else {
     router.push("/");
   }

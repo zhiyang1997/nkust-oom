@@ -9,11 +9,11 @@ const routes = [
         component: () => import("src/pages/DownloadsPage.vue"),
       },
       {
-        path: "overview",
+        path: "introduction/overview",
         component: () => import("src/pages/OverviewPage.vue"),
       },
       {
-        path: "structure",
+        path: "introduction/structure",
         component: () => import("src/pages/StructurePage.vue"),
       },
       {
@@ -31,6 +31,18 @@ const routes = [
       {
         path: "introduction",
         component: () => import("src/pages/IntroductionPage.vue"),
+      },
+      {
+        path: "regulations",
+        component: () => import("src/pages/RegulationsPage.vue"),
+      },
+      {
+        path: "regulations/mof",
+        component: () => import("src/pages/MofPage.vue"),
+      },
+      {
+        path: "regulations/agency",
+        component: () => import("src/pages/AgencyPage.vue"),
       },
     ],
   },
