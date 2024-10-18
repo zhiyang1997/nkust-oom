@@ -43,7 +43,7 @@ import { reactive, computed, ref } from "vue";
 import { QPagination } from "quasar";
 
 // 定義每頁顯示的最大數量
-const itemsPerPage = 10;
+const itemsPerPage = 5;
 
 // 分頁的當前頁面
 const currentPage = ref(1);

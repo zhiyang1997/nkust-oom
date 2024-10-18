@@ -91,11 +91,11 @@ const navigateTo = (route) => {
 
 /* 連結區塊樣式 */
 .link-list {
-  padding: 20px;
+  padding: 50px;
   background-color: white;
   border-radius: 10px;
-  /* border: 2px dashed #333; */ /* 添加2px的虛線邊框 */
-  margin: 0px auto; /* 與上方區域保持一些間距 */
+  border: 3px dashed #333; /* 添加2px的虛線邊框 */
+  margin: 20px auto; /* 與上方區域保持一些間距 */
   width: 80%;
 }
 
@@ -116,7 +116,6 @@ const navigateTo = (route) => {
 
 .link-item a:hover {
   color: #003366; /* 鼠標懸停時的深藍色 */
-  text-decoration: underline; /* 鼠標懸停時顯示下劃線 */
 }
 
 .link-item:last-child {

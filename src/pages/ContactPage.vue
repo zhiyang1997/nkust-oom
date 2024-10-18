@@ -18,36 +18,44 @@
         <p>················</p>
       </div>
 
-      <!-- 聯絡資訊區 -->
-      <div class="contact-info">
-        <h5>國立高雄科技大學 經營管理處</h5>
-        <ul>
-          <li>校區位置：楠梓校區 行政大樓三樓1309、1310</li>
-          <li>地址：811213 高雄市楠梓區海專路142號</li>
-          <li>電話：07-3617141 分機22112</li>
-          <li>
-            E-mail：<a href="mailto:eroffice01@nkust.edu.tw"
-              >eroffice01@nkust.edu.tw</a
-            >
-          </li>
-        </ul>
+      <!-- 每個區塊一個卡片 -->
+      <q-card class="q-ma-md q-pa-md card-container">
+        <q-card-section>
+          <h5 class="main-title">國立高雄科技大學 經營管理處</h5>
+          <ul>
+            <li>校區位置：楠梓校區 行政大樓三樓1309、1310</li>
+            <li>地址：811213 高雄市楠梓區海專路142號</li>
+            <li>電話：07-3617141 分機22112</li>
+            <li>
+              E-mail：<a
+                href="mailto:eroffice01@nkust.edu.tw"
+                class="email-link"
+                >eroffice01@nkust.edu.tw</a
+              >
+            </li>
+          </ul>
+        </q-card-section>
+      </q-card>
 
-        <q-separator></q-separator>
+      <q-card class="q-ma-md q-pa-md card-container">
+        <q-card-section>
+          <h6 class="sub-title">規劃評估組</h6>
+          <ul>
+            <li>電話：</li>
+            <li>E-mail：</li>
+          </ul>
+        </q-card-section>
+      </q-card>
 
-        <h6>規劃評估組</h6>
-        <ul>
-          <li>電話：</li>
-          <li>E-mail：</li>
-        </ul>
-
-        <q-separator></q-separator>
-
-        <h6>開發活化組</h6>
-        <ul>
-          <li>電話：</li>
-          <li>E-mail：</li>
-        </ul>
-      </div>
+      <q-card class="q-ma-md q-pa-md card-container">
+        <q-card-section>
+          <h6 class="sub-title">開發活化組</h6>
+          <ul>
+            <li>電話：</li>
+            <li>E-mail：</li>
+          </ul>
+        </q-card-section>
+      </q-card>
     </q-page>
   </q-page-container>
 </template>
@@ -82,7 +90,6 @@ const navigateTo = (route) => {
   align-items: center; /* 水平居中 */
   text-align: center; /* 保證文本居中 */
 }
-
 .contact-title h4 {
   margin-bottom: 5px; /* 調整 h4 底部的外邊距 */
   font-weight: bolder;
@@ -101,23 +108,53 @@ const navigateTo = (route) => {
   align-items: center; /* 確保 / 符號和按鈕對齊 */
 }
 
-.contact-info h5,
-.contact-info h6 {
-  margin-bottom: 10px; /* 減少標題和內文間距 */
-  margin-top: 10px; /* 視需求減少頂部的間距 */
-  font-weight: bold;
-  color: #003366;
+.card-container {
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 添加卡片的陰影效果 */
+  background-color: white; /* 卡片背景色 */
+  margin-bottom: 20px; /* 每張卡片的底部間距 */
 }
 
-.contact-info ul {
+/* 標題樣式 */
+.main-title {
+  font-size: 30px;
+  color: #003366;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* 輕微的陰影讓文字更突出 */
+  border-bottom: 3px solid #003366;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.sub-title {
+  font-size: 25px;
+  color: #005580;
+  margin-bottom: 5px;
+  border-left: 5px solid #005580;
+  padding-left: 10px; /* 增加邊距讓文字不貼邊 */
+}
+
+/* 列表樣式 */
+ul {
   list-style: none;
   padding: 0;
   margin: 10px 0;
 }
 
-.contact-info li {
-  margin: 5px 0;
+li {
   font-size: 18px;
   color: #555;
+  margin: 5px 0;
+}
+
+/* 郵件鏈接樣式 */
+.email-link {
+  color: #005580;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+  color: #003366;
 }
 </style>
