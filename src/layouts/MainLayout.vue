@@ -120,7 +120,7 @@ const navItems = ref([
     label: "業務職掌",
     route: "/services",
     subItems: [
-      { label: "處本部", route: "/headquarters" },
+      { label: "處本部", route: "/services/headquarters" },
       { label: "規劃評估組", route: "/services/plan" },
       { label: "開發活化組", route: "/services/develop" },
     ],

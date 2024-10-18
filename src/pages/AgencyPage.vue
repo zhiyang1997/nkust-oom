@@ -126,9 +126,10 @@ const navigateTo = (route) => {
   padding: 50px;
   background-color: white;
   border-radius: 10px;
-  border: 3px dashed #333; /* 添加2px的虛線邊框 */
   margin: 20px auto; /* 與上方區域保持一些間距 */
   width: 80%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 陰影效果 */
+  transition: all 0.3s ease;
 }
 
 .law-item {

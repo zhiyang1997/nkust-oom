@@ -44,6 +44,10 @@ const routes = [
         path: "regulations/agency",
         component: () => import("src/pages/AgencyPage.vue"),
       },
+      {
+        path: "services",
+        component: () => import("src/pages/ServicesPage.vue"),
+      },
     ],
   },
 
