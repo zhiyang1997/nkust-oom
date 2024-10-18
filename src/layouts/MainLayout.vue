@@ -24,7 +24,7 @@
           >
             校務系統
           </li>
-          <li class="link-item">後臺管理</li>
+          <!-- <li class="link-item">後臺管理</li> -->
         </ul>
       </div>
     </div>
@@ -217,13 +217,14 @@ const hyperlinkTo = (url) => {
   cursor: pointer;
   position: relative; /* 為 ::after 定位準備 */
   font-size: 16px;
-  color: white;
+  color: black;
   font-weight: bolder;
-  background-color: #5c5c5c; /* 背景顏色 */
+  background-color: white; /* 背景顏色 */
   padding: 5px 20px; /* 調整內部間距 */
   border-radius: 50px; /* 使按鈕變為橢圓形 */
   transition: background-color 0.3s, color 0.3s; /* 平滑過渡效果 */
   text-align: center;
+  border: 2px solid #5c5c5c; /* 添加 2px 灰色的外框線 */
 }
 
 .link-item:last-child::after {
@@ -231,7 +232,7 @@ const hyperlinkTo = (url) => {
 }
 
 .link-item:hover {
-  background-color: #4682b4; /* 懸停時的背景顏色 */
+  background-color: #5c5c5c; /* 懸停時的背景顏色 */
   color: white; /* 懸停時字體顏色 */
 }
 

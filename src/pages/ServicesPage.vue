@@ -23,19 +23,19 @@
         <!-- 左邊方塊 - 處本部 -->
         <div class="services-item">
           <q-icon name="info" color="grey" style="margin-right: 20px" />
-          <a href="/services/overview">處本部</a>
+          <a href="/services/headquarters">處本部</a>
         </div>
 
         <!-- 中間方塊 - 規劃評估組 -->
         <div class="services-item">
           <q-icon name="info" color="grey" style="margin-right: 20px" />
-          <a href="/introduction/structure">規劃評估組</a>
+          <a href="/services/structure">規劃評估組</a>
         </div>
 
         <!-- 右邊方塊 - 開發活化組 -->
         <div class="services-item">
           <q-icon name="info" color="grey" style="margin-right: 20px" />
-          <a href="/introduction/structure">開發活化組</a>
+          <a href="/services/structure">開發活化組</a>
         </div>
       </div>
     </q-page>

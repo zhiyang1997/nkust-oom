@@ -21,6 +21,11 @@ const routes = [
         component: () => import("src/pages/NewsPage.vue"),
       },
       {
+        path: "news/:id", // 動態新聞詳情頁面
+        name: "news-detail",
+        component: () => import("src/components/NewsDetailCompontent.vue"),
+      },
+      {
         path: "links",
         component: () => import("src/pages/LinksPage.vue"),
       },
@@ -47,6 +52,10 @@ const routes = [
       {
         path: "services",
         component: () => import("src/pages/ServicesPage.vue"),
+      },
+      {
+        path: "services/headquarters",
+        component: () => import("src/pages/HeadquartersPage.vue"),
       },
     ],
   },
