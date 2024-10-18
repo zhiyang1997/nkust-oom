@@ -4,7 +4,7 @@
     <div class="header-top" style="width: 65%; margin: 0 auto">
       <div class="logo-container">
         <img
-          src="src/img/nkust-oom.jpg"
+          src="/src/img/nkust-oom.jpg"
           alt="NKUST Logo"
           class="logo"
           @click="navigateTo()"
