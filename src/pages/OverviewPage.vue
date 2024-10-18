@@ -4,7 +4,12 @@
       <q-toolbar class="bg-grey-3 full-width">
         <q-btn flat @click="navigateTo()" class="text-bold" label="首頁" />
         <span class="separator">/</span>
-        <q-btn flat class="text-bold" label="單位介紹" />
+        <q-btn
+          flat
+          @click="navigateTo('introduction')"
+          class="text-bold"
+          label="單位介紹"
+        />
         <span class="separator">/</span>
         <q-btn
           flat

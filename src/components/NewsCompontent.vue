@@ -155,7 +155,7 @@ const getImageUrl = (photo) => {
 .news-image {
   max-width: 200px; /* 調整圖片寬度 */
   height: auto; /* 保持圖片比例 */
-  border-radius: 10px; /* 圓角 */
+  /* border-radius: 10px; 圓角 */
   transition: transform 0.3s ease; /* 添加過渡效果 */
 }
 
