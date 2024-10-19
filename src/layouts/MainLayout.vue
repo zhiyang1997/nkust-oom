@@ -24,7 +24,7 @@
           >
             校務系統
           </li>
-          <!-- <li class="link-item">後臺管理</li> -->
+          <!-- <li class="link-item" @click="navigateTo('/login')">後臺管理</li> -->
         </ul>
       </div>
     </div>
