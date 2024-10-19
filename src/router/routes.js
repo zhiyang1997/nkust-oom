@@ -6,19 +6,19 @@ const routes = [
       { path: "", component: () => import("src/pages/IndexPage.vue") },
       {
         path: "downloads",
-        component: () => import("src/pages/DownloadsPage.vue"),
+        component: () => import("src/pages/download/DownloadsPage.vue"),
       },
       {
         path: "introduction/overview",
-        component: () => import("src/pages/OverviewPage.vue"),
+        component: () => import("src/pages/introduction/OverviewPage.vue"),
       },
       {
         path: "introduction/structure",
-        component: () => import("src/pages/StructurePage.vue"),
+        component: () => import("src/pages/introduction/StructurePage.vue"),
       },
       {
         path: "news",
-        component: () => import("src/pages/NewsPage.vue"),
+        component: () => import("src/pages/news/NewsPage.vue"),
       },
       {
         path: "news/:id", // 動態新聞詳情頁面
@@ -27,43 +27,43 @@ const routes = [
       },
       {
         path: "links",
-        component: () => import("src/pages/LinksPage.vue"),
+        component: () => import("src/pages/link/LinksPage.vue"),
       },
       {
         path: "contact",
-        component: () => import("src/pages/ContactPage.vue"),
+        component: () => import("src/pages/contact/ContactPage.vue"),
       },
       {
         path: "introduction",
-        component: () => import("src/pages/IntroductionPage.vue"),
+        component: () => import("src/pages/introduction/IntroductionPage.vue"),
       },
       {
         path: "regulations",
-        component: () => import("src/pages/RegulationsPage.vue"),
+        component: () => import("src/pages/regulations/RegulationsPage.vue"),
       },
       {
         path: "regulations/mof",
-        component: () => import("src/pages/MofPage.vue"),
+        component: () => import("src/pages/regulations/MofPage.vue"),
       },
       {
         path: "regulations/agency",
-        component: () => import("src/pages/AgencyPage.vue"),
+        component: () => import("src/pages/regulations/AgencyPage.vue"),
       },
       {
         path: "services",
-        component: () => import("src/pages/ServicesPage.vue"),
+        component: () => import("src/pages/services/ServicesPage.vue"),
       },
       {
         path: "services/headquarters",
-        component: () => import("src/pages/HeadquartersPage.vue"),
+        component: () => import("src/pages/services/HeadquartersPage.vue"),
       },
       {
         path: "services/plan",
-        component: () => import("src/pages/PlanPage.vue"),
+        component: () => import("src/pages/services/PlanPage.vue"),
       },
       {
         path: "services/develop",
-        component: () => import("src/pages/DevelopPage.vue"),
+        component: () => import("src/pages/services/DevelopPage.vue"),
       },
     ],
   },

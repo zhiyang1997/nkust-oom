@@ -13,15 +13,15 @@
         <span class="separator">/</span>
         <q-btn
           flat
-          @click="navigateTo('services/plan')"
+          @click="navigateTo('services/develop')"
           class="text-bold"
-          label="規劃評估組"
+          label="開發活化組"
         />
       </q-toolbar>
 
       <!-- 關於本處 Title -->
       <div class="headquarters-title">
-        <h4>規劃評估組</h4>
+        <h4>開發活化組</h4>
         <p>················</p>
       </div>
 
@@ -145,6 +145,14 @@ const navigateTo = (route) => {
 /* 主要容器样式 */
 .headquarters-container {
   padding: 20px;
+}
+
+.separator {
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center; /* 確保 / 符號和按鈕對齊 */
 }
 
 /* 標題樣式 */

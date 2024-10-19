@@ -63,6 +63,14 @@ const navigateTo = (route) => {
   padding: 20px;
 }
 
+.separator {
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center; /* 確保 / 符號和按鈕對齊 */
+}
+
 .services-title {
   flex: 1;
   color: #343a40;
