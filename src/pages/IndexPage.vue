@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import ImageCarousel from "../components/ImageCarousel.vue"; // 引入輪播圖片元件
+import ImageCarousel from "../components/ImageCarouselCompontent.vue"; // 引入輪播圖片元件
 import NewsCompontent from "src/components/NewsCompontent.vue";
 </script>
 
