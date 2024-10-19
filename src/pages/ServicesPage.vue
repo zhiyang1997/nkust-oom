@@ -29,13 +29,13 @@
         <!-- 中間方塊 - 規劃評估組 -->
         <div class="services-item">
           <q-icon name="info" color="grey" style="margin-right: 20px" />
-          <a href="/services/structure">規劃評估組</a>
+          <a href="/services/plan">規劃評估組</a>
         </div>
 
         <!-- 右邊方塊 - 開發活化組 -->
         <div class="services-item">
           <q-icon name="info" color="grey" style="margin-right: 20px" />
-          <a href="/services/structure">開發活化組</a>
+          <a href="/services/develop">開發活化組</a>
         </div>
       </div>
     </q-page>

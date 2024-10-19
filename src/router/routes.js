@@ -57,6 +57,14 @@ const routes = [
         path: "services/headquarters",
         component: () => import("src/pages/HeadquartersPage.vue"),
       },
+      {
+        path: "services/plan",
+        component: () => import("src/pages/PlanPage.vue"),
+      },
+      {
+        path: "services/develop",
+        component: () => import("src/pages/DevelopPage.vue"),
+      },
     ],
   },
 

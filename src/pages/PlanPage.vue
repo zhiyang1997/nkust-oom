@@ -13,15 +13,15 @@
         <span class="separator">/</span>
         <q-btn
           flat
-          @click="navigateTo('services/headquarters')"
+          @click="navigateTo('services/plan')"
           class="text-bold"
-          label="處本部"
+          label="規劃評估組"
         />
       </q-toolbar>
 
       <!-- 關於本處 Title -->
       <div class="headquarters-title">
-        <h4>處本部</h4>
+        <h4>規劃評估組</h4>
         <p>················</p>
       </div>
 
@@ -50,16 +50,12 @@
               <p class="item-content">{{ info.email }}</p>
             </div>
             <div class="info-item">
-              <p class="item-label">現任職務：</p>
-              <p class="item-content" v-html="info.position"></p>
-            </div>
-            <div class="info-item">
-              <p class="item-label">學經歷：</p>
-              <p class="item-content">{{ info.education }}</p>
-            </div>
-            <div class="info-item">
               <p class="item-label">工作項目：</p>
-              <p class="item-content">{{ info.responsibility }}</p>
+              <p class="item-content" v-html="info.responsibility"></p>
+            </div>
+            <div class="info-item">
+              <p class="item-label">代理人：</p>
+              <p class="item-content">{{ info.agent }}</p>
             </div>
           </div>
         </div>
@@ -114,13 +110,12 @@ const router = useRouter();
 // 定義關於本處的資料 (置頂的列表)
 const aboutInfo = reactive([
   {
-    image: "高瑞鍾<br>處長",
-    phone: "(07)3617141 轉 23131、23470",
-    email: "jckao@nkust.edu.tw",
-    position:
-      "國立高雄科技大學 經營管理處 處長<br>國立高雄科技大學 教育事業暨產品推廣處 處長<br>國立高雄科技大學 海事產管所 教授",
-    education: "學經歷總表",
-    responsibility: "綜理 經營管理處 業務。",
+    image: "組長",
+    phone: "",
+    email: "",
+    position: "",
+    responsibility: "",
+    agent: "",
   },
   // 可以添加更多的項目...
 ]);
@@ -128,20 +123,11 @@ const aboutInfo = reactive([
 // 第二個列表的資料
 const anotherListData = reactive([
   {
-    image: "賴杏雲<br>約用組員",
-    phone: "(07)3617141 轉 22101",
-    email: "xingyun@nkust.edu.tw",
-    responsibility:
-      "1.處長行程安排及公文核稿。<br>2.彙整及召開處務會議。<br>3.彙整各項工作報告（含專案）進度。<br>4.彙整及管考年度計畫。<br>5.彙整及提報業務績效報告資料。<br>6.經營管理處各類專案之規劃與執行。<br>7.其他行政支援及臨時交辦事項。",
-    agent: "1.蘇宸儀",
-  },
-  {
-    image: "蘇宸儀<br>約用助理員",
-    phone: "(07)3617141 轉 22114",
-    email: "judy2022@nkust.edu.tw",
-    responsibility:
-      "1.公文分發及稽催。<br>2.大事紀要、登革熱場域管理及自主管理填報窗口。<br>3.網站管理及維護。<br>4.辦理處內財物盤點。<br>5.修訂經營管理處相關法規。<br>6.分配處內預算及執行控管。<br>7.管理處內物品及採購核銷。<br>8.管理經營管理處兼任助理。<br>9.其他行政支援及臨時交辦事項。",
-    agent: "1.賴杏雲",
+    image: "待補<br>約用組員",
+    phone: "",
+    email: "",
+    responsibility: "",
+    agent: "",
   },
 ]);
 
