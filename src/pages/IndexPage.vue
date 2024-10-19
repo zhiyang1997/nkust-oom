@@ -7,11 +7,13 @@
   </div>
 
   <NewsCompontent />
+  <MapCompontent />
 </template>
 
 <script setup>
 import ImageCarousel from "../components/ImageCarouselCompontent.vue"; // 引入輪播圖片元件
-import NewsCompontent from "src/components/NewsCompontent.vue";
+import NewsCompontent from "src/components/NewsCompontent.vue"; //最新消息元件
+import MapCompontent from "src/components/MapCompontent.vue";
 </script>
 
 <style scoped></style>

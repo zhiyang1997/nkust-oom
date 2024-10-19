@@ -21,7 +21,7 @@ const routes = [
         component: () => import("src/pages/news/NewsPage.vue"),
       },
       {
-        path: "news/:id", // 動態新聞詳情頁面
+        path: "news/news:id", // 動態新聞詳情頁面
         name: "news-detail",
         component: () => import("src/components/NewsDetailCompontent.vue"),
       },
