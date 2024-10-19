@@ -63,7 +63,7 @@ const navigateTo = (route) => {
 const news = reactive([
   // 添加多筆新聞資料以示範
   {
-    id: 1,
+    id: 0,
     photo: "carousel1.jpg",
     title:
       "經營管理處自111年8月1日成立（任務編組），112年2月1日正式納入本校組織規程。",
@@ -75,7 +75,7 @@ const news = reactive([
     ],
   },
   {
-    id: 2,
+    id: 1,
     photo: "carousel2.jpg",
     title:
       "【轉知】財政部敬邀貴機關及專家學者踴躍投稿「促進民間參與公共建設電子報」，詳如原函說明，轉請查照。",
@@ -89,7 +89,7 @@ const news = reactive([
     ],
   },
   {
-    id: 3,
+    id: 2,
     photo: "carousel3.jpg",
     title: "【轉知】財政部檢送「中華民國112年度促參年報」，轉請查照。",
     date: "2023-08-14",
@@ -103,7 +103,7 @@ const news = reactive([
   },
   // 添加更多的新聞資料...
   {
-    id: 4,
+    id: 3,
     photo: "carousel1.jpg",
     title:
       "【轉知】檢送113年版「民間自備私有土地興建、擁有及營運（B (R)OO）案招商文件（含甄審須知及投資契約）範本」1 份，請查照並轉知所屬。",
@@ -125,7 +125,7 @@ const news = reactive([
     ],
   },
   {
-    id: 5,
+    id: 4,
     photo: "carousel2.jpg",
     title:
       "【轉知】財政部自即日起至113年9月30日止，受理各機關申請補助 114年度促進民間參與公共建設案件（下稱促參案件）前 置作業費用，請查照。",
@@ -133,56 +133,56 @@ const news = reactive([
     content: "這是經營管理處的詳細新聞內容。",
   },
   {
-    id: 6,
+    id: 5,
     photo: "carousel3.jpg",
     title: "新聞標題 6",
     date: "2024-11-01",
     content: "這是經營管理處的詳細新聞內容。",
   },
   {
-    id: 7,
+    id: 6,
     photo: "carousel1.jpg",
     title: "新聞標題 8",
     date: "2024-11-01",
     content: "這是經營管理處的詳細新聞內容。",
   },
   {
-    id: 8,
+    id: 7,
     photo: "carousel1.jpg",
     title: "新聞標題 9",
     date: "2024-11-01",
     content: "這是經營管理處的詳細新聞內容。",
   },
   {
-    id: 9,
+    id: 8,
     photo: "carousel1.jpg",
     title: "新聞標題 10",
     date: "2024-11-01",
     content: "這是經營管理處的詳細新聞內容。",
   },
   {
-    id: 10,
+    id: 9,
     photo: "carousel1.jpg",
     title: "新聞標題 11",
     date: "2024-11-01",
     content: "這是經營管理處的詳細新聞內容。",
   },
   {
-    id: 11,
+    id: 10,
     photo: "carousel1.jpg",
     title: "新聞標題 12",
     date: "2024-11-01",
     content: "這是經營管理處的詳細新聞內容。",
   },
   {
-    id: 12,
+    id: 11,
     photo: "carousel1.jpg",
     title: "新聞標題 13",
     date: "2024-11-01",
     content: "這是經營管理處的詳細新聞內容。",
   },
   {
-    id: 13,
+    id: 12,
     photo: "carousel1.jpg",
     title: "新聞標題 14",
     date: "2024-11-01",
