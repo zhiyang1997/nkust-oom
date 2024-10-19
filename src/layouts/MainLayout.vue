@@ -224,7 +224,7 @@ const hyperlinkTo = (url) => {
   border-radius: 50px; /* 使按鈕變為橢圓形 */
   transition: background-color 0.3s, color 0.3s; /* 平滑過渡效果 */
   text-align: center;
-  border: 2px solid #5c5c5c; /* 添加 2px 灰色的外框線 */
+  border: 3px solid #5c5c5c; /* 添加 2px 灰色的外框線 */
 }
 
 .link-item:last-child::after {
