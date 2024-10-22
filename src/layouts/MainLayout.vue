@@ -30,62 +30,49 @@
     </div>
 
     <!-- 原本的 bar 區域 -->
-    <q-page-container
-      elevated
-      class="header-container bg-grey-3"
-      style="width: 65%; margin: 0 auto"
+    <q-toolbar
+      class="toolbar-container bg-grey-3"
+      style="justify-content: center; width: 65%; margin: auto"
     >
-      <q-toolbar
-        class="toolbar-container bg-grey-3"
-        style="justify-content: center"
-      >
-        <!-- 左側的三條線圖標作為菜單 -->
-        <q-btn
-          flat
-          no-border
-          icon="menu"
-          style="font-size: 14px"
-          color="black"
-        />
+      <!-- 左側的三條線圖標作為菜單 -->
+      <q-btn flat no-border icon="menu" style="font-size: 14px" color="black" />
 
-        <!-- 中間的導航欄清單 -->
-        <ul class="nav-list">
-          <li
-            v-for="(item, index) in navItems"
-            :key="index"
-            class="nav-item"
-            @mouseenter="openMenu(index)"
+      <!-- 中間的導航欄清單 -->
+      <ul class="nav-list">
+        <li
+          v-for="(item, index) in navItems"
+          :key="index"
+          class="nav-item"
+          @mouseenter="openMenu(index)"
+          @mouseleave="closeMenu(index)"
+          @click="navigateTo(item.route)"
+          style="font-size: large; font-weight: bolder"
+        >
+          {{ item.label }}
+
+          <q-menu
+            v-if="item.subItems"
+            v-model="menus[index]"
+            transition-show="scale"
+            transition-hide="scale"
+            @mouseenter="keepMenuOpen(index)"
             @mouseleave="closeMenu(index)"
-            @click="navigateTo(item.route)"
-            style="font-size: large; font-weight: bolder"
           >
-            {{ item.label }}
-
-            <q-menu
-              v-if="item.subItems"
-              v-model="menus[index]"
-              transition-show="scale"
-              transition-hide="scale"
-              @mouseenter="keepMenuOpen(index)"
-              @mouseleave="closeMenu(index)"
-              style="width: 8em"
-            >
-              <q-list>
-                <q-item
-                  clickable
-                  v-close-popup
-                  v-for="(subItem, subIndex) in item.subItems"
-                  :key="subIndex"
-                  @click="navigateTo(subItem.route)"
-                >
-                  <q-item-section>{{ subItem.label }}</q-item-section>
-                </q-item>
-              </q-list>
-            </q-menu>
-          </li>
-        </ul>
-      </q-toolbar>
-    </q-page-container>
+            <q-list>
+              <q-item
+                clickable
+                v-close-popup
+                v-for="(subItem, subIndex) in item.subItems"
+                :key="subIndex"
+                @click="navigateTo(subItem.route)"
+              >
+                <q-item-section>{{ subItem.label }}</q-item-section>
+              </q-item>
+            </q-list>
+          </q-menu>
+        </li>
+      </ul>
+    </q-toolbar>
 
     <!-- 插槽：在 bar 下面的區域插入內容 -->
     <!-- <div style="width: 65%; margin: 0 auto; margin-top: 2%"> -->
