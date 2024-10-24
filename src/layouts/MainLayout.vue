@@ -71,6 +71,31 @@
             </q-list>
           </q-menu>
         </li>
+        <li>
+          <div class="search-container">
+            <!-- 若 isSearching 為 false，顯示放大鏡圖示 -->
+
+            <button
+              v-if="!isSearching"
+              @click="toggleSearch"
+              class="search-button"
+            >
+              🔍
+            </button>
+
+            <!-- 若 isSearching 為 true，顯示輸入框和按鈕 -->
+            <div v-else class="search-bar">
+              <input
+                v-model="query"
+                type="text"
+                placeholder="輸入關鍵字"
+                class="search-input"
+              />
+              <button @click="search" class="search-button">🔍</button>
+              <button @click="toggleSearch" class="close-button">❌</button>
+            </div>
+          </div>
+        </li>
       </ul>
     </q-toolbar>
 
@@ -91,6 +116,9 @@ import FooterComponent from "./FooterComponent.vue";
 
 // 使用 Vue Router 來進行導航
 const router = useRouter();
+
+const isSearching = ref(false); // 控制是否顯示搜尋輸入框
+const query = ref(""); // 綁定輸入框內容
 
 // 導航項目，每個項目可以有下拉選單內容，並包含導航路徑
 const navItems = ref([
@@ -161,6 +189,21 @@ const navigateTo = (route) => {
 
 const hyperlinkTo = (url) => {
   window.open(url, "_blank");
+};
+
+// 切換搜尋輸入框顯示
+const toggleSearch = () => {
+  isSearching.value = !isSearching.value;
+  if (!isSearching.value) {
+    query.value = ""; // 清空輸入框
+  }
+};
+
+// 搜尋並導向 /search 頁面
+const search = () => {
+  if (query.value.trim() !== "") {
+    router.push({ name: "search", query: { q: query.value } });
+  }
 };
 </script>
 
