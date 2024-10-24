@@ -176,6 +176,7 @@ const hyperlinkTo = (url) => {
 
 .logo-container {
   flex: 1;
+  cursor: pointer; /* 滑鼠移上去變成手型 */
 }
 
 .logo {
