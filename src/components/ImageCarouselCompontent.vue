@@ -14,13 +14,9 @@
     @mouseenter="autoplay = false"
     @mouseleave="autoplay = true"
   >
-    <q-carousel-slide
-      v-for="(img, index) in images"
-      :key="index"
-      :name="index"
-      :img-src="img.src"
-    >
+    <q-carousel-slide v-for="(img, index) in images" :key="index" :name="index">
       <!-- 你可以在這裡添加圖片的描述或文字 -->
+      <img :src="img.src" class="custom-image" />
     </q-carousel-slide>
   </q-carousel>
 </template>
@@ -42,4 +38,10 @@ const images = [
 ];
 </script>
 
-<style scoped></style>
+<style scoped>
+.custom-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 保持圖片完整不裁切 */
+}
+</style>
