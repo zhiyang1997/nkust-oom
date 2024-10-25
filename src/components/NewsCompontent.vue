@@ -1,48 +1,44 @@
 <template>
-  <q-page-container>
-    <q-page class="news-container" style="width: 65%; margin: 0% auto">
-      <div class="news-title">
-        <h4>最新消息</h4>
-        <p>················</p>
+  <div class="news-title">
+    <h4>最新消息</h4>
+    <p>················</p>
+  </div>
+  <!-- 最新消息區域 -->
+  <div class="news-list">
+    <router-link
+      :to="{
+        name: 'news-detail',
+        params: { id: item.id },
+        query: { page: currentPage },
+      }"
+      v-for="(item, index) in paginatedNews"
+      :key="index"
+      class="news-item-link"
+    >
+      <div class="news-item">
+        <div class="news-photo">
+          <img
+            :src="getImageUrl(item.photo)"
+            alt="News Image"
+            class="news-image"
+          />
+        </div>
+        <div class="news-index">{{ item.title }}</div>
+        <div class="news-date">{{ item.date }}</div>
       </div>
-      <!-- 最新消息區域 -->
-      <div class="news-list">
-        <router-link
-          :to="{
-            name: 'news-detail',
-            params: { id: item.id },
-            query: { page: currentPage },
-          }"
-          v-for="(item, index) in paginatedNews"
-          :key="index"
-          class="news-item-link"
-        >
-          <div class="news-item">
-            <div class="news-photo">
-              <img
-                :src="getImageUrl(item.photo)"
-                alt="News Image"
-                class="news-image"
-              />
-            </div>
-            <div class="news-index">{{ item.title }}</div>
-            <div class="news-date">{{ item.date }}</div>
-          </div>
-        </router-link>
-      </div>
-      <!-- 分頁元件 -->
-      <div class="pagination-container">
-        <q-pagination
-          v-model="currentPage"
-          :max="totalPages"
-          max-pages="5"
-          boundary-numbers
-          class="q-mt-lg"
-          color="grey"
-        />
-      </div>
-    </q-page>
-  </q-page-container>
+    </router-link>
+  </div>
+  <!-- 分頁元件 -->
+  <div class="pagination-container">
+    <q-pagination
+      v-model="currentPage"
+      :max="totalPages"
+      max-pages="5"
+      boundary-numbers
+      class="q-mt-lg"
+      color="grey"
+    />
+  </div>
 </template>
 
 <script setup>
@@ -183,10 +179,6 @@ const getImageUrl = (photo) => {
 </script>
 
 <style scoped>
-.news-container {
-  padding: 20px;
-}
-
 .news-title {
   flex: 1;
   color: #343a40;

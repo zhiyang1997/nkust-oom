@@ -1,7 +1,7 @@
 <template>
   <q-page-container>
-    <q-page class="news-container">
-      <q-toolbar class="bg-grey-3" style="width: 64.3%; margin: auto">
+    <q-page class="news-container" style="width: 65%; margin: 0% auto">
+      <q-toolbar class="bg-grey-3">
         <q-btn flat @click="navigateTo()" class="text-bold" label="首頁" />
         <span class="separator">/</span>
         <q-btn
@@ -11,7 +11,7 @@
           label="最新消息"
         />
       </q-toolbar>
-      <!--表單下載 Title-->
+
       <NewsCompontent />
     </q-page>
   </q-page-container>

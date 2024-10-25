@@ -6,7 +6,13 @@
     <ImageCarousel />
   </div>
 
-  <NewsCompontent />
+  <!-- 最新消息區域 -->
+  <q-page-container>
+    <q-page class="news-container" style="width: 65%; margin: 0% auto">
+      <NewsCompontent />
+    </q-page>
+  </q-page-container>
+
   <MapCompontent />
 </template>
 
@@ -16,4 +22,8 @@ import NewsCompontent from "src/components/NewsCompontent.vue"; //最新消息�
 import MapCompontent from "src/components/MapCompontent.vue";
 </script>
 
-<style scoped></style>
+<style scoped>
+.news-container {
+  padding: 20px;
+}
+</style>
