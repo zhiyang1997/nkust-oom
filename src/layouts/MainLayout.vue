@@ -80,7 +80,7 @@
               @click="toggleSearch"
               class="search-button"
             >
-              🔍
+              <q-icon name="search" size="sm" />
             </button>
 
             <!-- 若 isSearching 為 true，顯示輸入框和按鈕 -->
@@ -91,8 +91,12 @@
                 placeholder="輸入關鍵字"
                 class="search-input"
               />
-              <button @click="search" class="search-button">🔍</button>
-              <button @click="toggleSearch" class="close-button">❌</button>
+              <button @click="search" class="search-button">
+                <q-icon name="search" size="sm" />
+              </button>
+              <button @click="toggleSearch" class="close-button">
+                <q-icon name="close" size="sm" />
+              </button>
             </div>
           </div>
         </li>
@@ -110,7 +114,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import FooterComponent from "./FooterComponent.vue";
 
