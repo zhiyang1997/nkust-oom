@@ -71,9 +71,9 @@
             </q-list>
           </q-menu>
         </li>
-        <li>
+        <!-- <li>
           <div class="search-container">
-            <!-- 若 isSearching 為 false，顯示放大鏡圖示 -->
+            若 isSearching 為 false，顯示放大鏡圖示
 
             <button
               v-if="!isSearching"
@@ -83,7 +83,7 @@
               <q-icon name="search" size="sm" />
             </button>
 
-            <!-- 若 isSearching 為 true，顯示輸入框和按鈕 -->
+            若 isSearching 為 true，顯示輸入框和按鈕
             <div v-else class="search-bar">
               <input
                 v-model="query"
@@ -99,7 +99,7 @@
               </button>
             </div>
           </div>
-        </li>
+        </li> -->
       </ul>
     </q-toolbar>
 

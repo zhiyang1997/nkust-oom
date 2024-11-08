@@ -35,7 +35,7 @@
               style="margin-right: 15px"
               size="30px"
             />
-            <a :href="file.url" download>{{ file.name }}</a>
+            <a :href="`/files/${file.name}`" download>{{ file.name }}</a>
           </div>
         </div>
       </div>
@@ -71,7 +71,9 @@ const news = reactive([
     content:
       "經營管理處自111年8月1日成立（任務編組），112年2月1日正式納入本校組織規程。<br>經營管理處置處長一人，掌理重大工程之先期評估與規劃設計、資產之開發、營運空間與項目活化事宜。<br>分設規劃評估、 開發活化 二組，各組置組長一人。<br><br>經營管理處：Office of Operations and Management (OOM)<br>規劃評估組：Operational Planning and Organizational Assessment Division<br>開發活化組：	Marketing and Spatial Activation Division",
     files: [
-      { name: "1-1.組織規程核定本-1120201生效.pdf", url: "path/to/file1.pdf" },
+      {
+        name: "1-1.組織規程核定本-1120201生效.pdf",
+      },
     ],
   },
   {
@@ -84,7 +86,6 @@ const news = reactive([
     files: [
       {
         name: "台財促字第11325529870號.pdf",
-        url: "path/to/file1.pdf",
       },
     ],
   },
@@ -97,7 +98,6 @@ const news = reactive([
     files: [
       {
         name: "臺教秘(二)字第1130080395號.pdf",
-        url: "path/to/file1.pdf",
       },
     ],
   },
@@ -112,15 +112,12 @@ const news = reactive([
     files: [
       {
         name: "台財促字第11325523610號.pdf",
-        url: "path/to/file1.pdf",
       },
       {
         name: "民間自備私有土地 興建、擁有及營運(B(R)OO)案 投資契約範本.pdf",
-        url: "path/to/file1.pdf",
       },
       {
         name: "民間自備私有土地 興建、擁有及營運(B(R)OO)案 甄審須知範本.pdf",
-        url: "path/to/file1.pdf",
       },
     ],
   },

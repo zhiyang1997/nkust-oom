@@ -146,25 +146,129 @@
     </div>
     <!-- 校區信息顯示區域 -->
     <div class="info-card" v-if="selectedAreaName">
-      <h4>{{ selectedAreaName }}</h4>
-      <img
-        v-if="selectedImage"
-        :src="selectedImage"
-        alt="校區圖片"
-        style="max-width: 100%; border-radius: 10px"
-      />
+      <template v-if="selectedAreaName === '第一校區、楠梓校區'">
+        <div class="split-container">
+          <div class="split-section">
+            <img :src="selectedAreaImages.firstCampus" alt="第一校區圖片" />
+            <div class="icon-text">
+              <div class="icon-content">
+                <q-icon name="school" size="24px" class="school-icon" />
+                <h4>第一校區</h4>
+              </div>
+              <div class="icon-content">
+                <q-icon name="place" size="24px" style="color: #5c5c5c" />
+                <h6>824高雄市燕巢區大學路1號</h6>
+              </div>
+              <div class="icon-content">
+                <q-icon name="phone" size="24px" style="color: #5c5c5c" />
+                <h6>07-6011000</h6>
+              </div>
+            </div>
+          </div>
+          <div class="split-divider"></div>
+          <!-- 中間虛線分隔 -->
+          <div class="split-section">
+            <img :src="selectedAreaImages.nanzihCampus" alt="楠梓校區圖片" />
+            <div class="icon-text">
+              <div class="icon-content">
+                <q-icon name="school" size="24px" class="school-icon" />
+                <h4>楠梓校區</h4>
+              </div>
+              <div class="icon-content">
+                <q-icon name="place" size="24px" style="color: #5c5c5c" />
+                <h6>811高雄市楠梓區海專路142號</h6>
+              </div>
+              <div class="icon-content">
+                <q-icon name="phone" size="24px" style="color: #5c5c5c" />
+                <h6>07-3617141</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+      <template v-else>
+        <img :src="selectedAreaImages.default" alt="校區圖片" />
+        <div class="icon-text">
+          <div class="icon-content">
+            <q-icon name="school" size="24px" class="school-icon" />
+            <h4>{{ selectedAreaName }}</h4>
+          </div>
+          <div class="icon-content">
+            <q-icon name="place" size="24px" style="color: #5c5c5c" />
+            <h6>{{ selectedAddress }}</h6>
+          </div>
+          <div class="icon-content">
+            <q-icon name="phone" size="24px" style="color: #5c5c5c" />
+            <h6>{{ selectedPhone }}</h6>
+          </div>
+        </div>
+      </template>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed, watch } from "vue";
 
 const tooltipVisible = ref(false);
 const regionName = ref("");
 const selectedAreaName = ref("");
+const selectedAddress = ref("");
+const selectedPhone = ref("");
 const selectedImage = ref("");
 let previousAreaId = null; // 用來追蹤上一次點選的區域
+
+// 計算圖片路徑
+const imagePaths = {
+  第一校區: new URL("../img/map/first1.png", import.meta.url).href,
+  楠梓校區: new URL("../img/map/nanzih1.jpeg", import.meta.url).href,
+};
+
+const selectedAreaImages = computed(() => {
+  if (selectedAreaName.value === "第一校區、楠梓校區") {
+    return {
+      firstCampus: imagePaths["第一校區"],
+      nanzihCampus: imagePaths["楠梓校區"],
+    };
+  } else {
+    return { default: selectedImage.value };
+  }
+});
+
+const campusDetails = {
+  旗津校區: {
+    address: "805高雄市旗津區中洲三路1號",
+    phone: "07-5721000",
+    image: new URL("../img/map/cijin1.png", import.meta.url).href,
+  },
+  建工校區: {
+    address: "807高雄市三民區建工路415號",
+    phone: "07-3814526",
+    image: new URL("../img/map/jiangong1.jpg", import.meta.url).href,
+  },
+  燕巢校區: {
+    address: "824高雄市燕巢區深中路58號",
+    phone: "07-3814526",
+    image: new URL("../img/map/yanchao1.jpg", import.meta.url).href,
+  },
+};
+
+// 監聽 selectedAreaName 的變化
+watch(
+  selectedAreaName,
+  (newValue) => {
+    if (campusDetails[newValue]) {
+      selectedAddress.value = campusDetails[newValue].address;
+      selectedPhone.value = campusDetails[newValue].phone;
+      selectedImage.value = campusDetails[newValue].image;
+    } else {
+      selectedAddress.value = "";
+      selectedPhone.value = "";
+      selectedImage.value = "";
+    }
+  },
+  { immediate: true } // 確保初始值也能觸發
+);
 
 function handleMouseEnter(region, areaId) {
   regionName.value = region;
@@ -223,11 +327,79 @@ function handleAreaClick(areaName, areaId, imagePath) {
 
 .info-card {
   flex: 1;
-  padding-left: 3px;
   padding: 10px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* 卡片陰影效果 */
+
+  /* Flexbox 設置 */
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  align-items: center; /* 圖片水平置中 */
+}
+
+.split-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* 讓容器填滿整個 info-card 區域 */
+  height: 100%;
+}
+
+.split-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 45%; /* 確保兩個區域平分 */
+}
+
+.split-divider {
+  width: 2px;
+  background: #ccc;
+  height: 100%;
+  border-left: 1px dashed #999;
+  margin: 0 10px;
+}
+
+.icon-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 讓內容靠左對齊 */
+  margin-top: 10px;
+}
+
+.icon-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px; /* 每組內容之間的間距 */
+}
+
+.icon-content q-icon {
+  margin-right: 8px; /* 圖標與文字之間的間距 */
+}
+
+.school-icon {
+  margin-right: 8px; /* 與文字間距 */
+  color: #5c5c5c; /* 使用 Quasar 預設色彩系統，改成綠色 */
+}
+
+img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: 24px; /* 可根據需求調整文字大小 */
+  margin: 0; /* 去掉預設 margin */
+}
+
+h6 {
+  font-size: 16px; /* 可根據需求調整文字大小 */
+  margin: 0; /* 去掉預設 margin */
 }
 
 .cls-1 {

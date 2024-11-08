@@ -54,7 +54,7 @@ const router = useRouter();
 const currentPage = ref(parseInt(route.query.page) || 1);
 
 // 定義每頁顯示的最大數量
-const itemsPerPage = 5;
+const itemsPerPage = 8;
 
 // 定義 news 資料
 // 模擬的新聞數據
