@@ -182,7 +182,6 @@ const selectedAreaName = ref("");
 const selectedAddress = ref("");
 const selectedPhone = ref("");
 const selectedImage = ref("");
-const showMap = ref("");
 let previousAreaId = null; // 用來追蹤上一次點選的區域
 
 const currentView = ref("campus"); // 當前顯示的視圖，預設為校區分布圖

@@ -159,8 +159,8 @@ const news = reactive(
     },
   ]
     .sort((a, b) => new Date(b.date) - new Date(a.date)) // 按日期降序排序
-    .map((item, index) => ({ ...item, id: index }))
-); // 重新分配 ID;
+    .map((item, index) => ({ ...item, id: index })) // 重新分配 ID;
+);
 
 // 根據當前頁面計算要顯示的新聞資料
 const paginatedNews = computed(() => {
