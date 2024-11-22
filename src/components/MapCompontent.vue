@@ -1,8 +1,14 @@
 <template>
   <div class="map-container" style="width: 65%; margin: auto">
+    <!-- 按鈕容器 -->
+    <div class="button-container">
+      <button @click="switchView('campus')">校區分布圖</button>
+      <button @click="switchView('hallway')">S廊道圖</button>
+    </div>
+    <!-- 地圖區域 -->
     <!-- 引入 SVG 文件 -->
     <!-- SVG 內容從 Illustrator 匯出後直接貼到這裡 -->
-    <div class="svg-wrapper">
+    <div class="svg-wrapper" v-if="currentView === 'campus'">
       <svg
         id="圖層_1"
         data-name="圖層 1"
@@ -133,7 +139,10 @@
       </svg>
     </div>
     <!-- 校區信息顯示區域 -->
-    <div class="info-card" v-if="selectedAreaName">
+    <div
+      class="info-card"
+      v-show="currentView === 'campus' && selectedAreaName"
+    >
       <img
         :src="selectedAreaImages.default"
         alt="校區圖片"
@@ -154,6 +163,13 @@
         </div>
       </div>
     </div>
+
+    <!-- S 廊道圖 -->
+    <div v-if="currentView === 'hallway'" class="hallway-container">
+      <h3>S 廊道圖展示</h3>
+      <p>這裡是 S 廊道圖的內容</p>
+      <!-- 你可以在這裡添加任何需要的內容 -->
+    </div>
   </div>
 </template>
 
@@ -166,13 +182,38 @@ const selectedAreaName = ref("");
 const selectedAddress = ref("");
 const selectedPhone = ref("");
 const selectedImage = ref("");
+const showMap = ref("");
 let previousAreaId = null; // 用來追蹤上一次點選的區域
 
-// 計算圖片路徑
-const imagePaths = {
-  第一校區: new URL("/public/img/map/first1.png", import.meta.url).href,
-  楠梓校區: new URL("/public/img/map/nanzih1.jpeg", import.meta.url).href,
-};
+const currentView = ref("campus"); // 當前顯示的視圖，預設為校區分布圖
+
+// 切換視圖並重置狀態
+function switchView(view) {
+  currentView.value = view;
+
+  if (view === "campus") {
+    // 顯示校區分布圖時重置
+    resetCampusState();
+  } else if (view === "hallway") {
+    // 顯示 S 廊道圖時，重置其他內容
+    resetCampusState();
+  }
+}
+
+// 重置校區相關狀態
+function resetCampusState() {
+  selectedAreaName.value = "";
+  selectedAddress.value = "";
+  selectedPhone.value = "";
+  selectedImage.value = "";
+  previousAreaId = null;
+
+  // 重置地圖區域顏色
+  const areas = document.querySelectorAll(".cls-1");
+  areas.forEach((area) => {
+    area.style.fill = "#5b5c5c"; // 回到預設顏色
+  });
+}
 
 const selectedAreaImages = computed(() => {
   return { default: selectedImage.value };
@@ -370,5 +411,33 @@ h6 {
 }
 .cls-2 {
   fill: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* 與地圖保持間距 */
+}
+
+.button-container button {
+  padding: 10px 20px;
+  margin: 0 10px; /* 按鈕之間的間距 */
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #5c5c5c;
+  color: white;
+  height: 40px; /* 固定高度 */
+  line-height: 20px; /* 控制文字行高，避免改變按鈕高度 */
+  display: flex; /* 確保文字垂直置中 */
+  align-items: center; /* 垂直置中 */
+  justify-content: center; /* 水平置中 */
+  box-sizing: border-box; /* 包括內邊距在內進行尺寸計算 */
+}
+
+.button-container button:hover {
+  background-color: #1976d2;
 }
 </style>
