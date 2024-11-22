@@ -8,7 +8,7 @@
           flat
           @click="navigateTo('regulations')"
           class="text-bold"
-          label="法令規章"
+          label="主管法規"
         />
         <span class="separator">/</span>
         <q-btn
@@ -33,7 +33,8 @@
         >
           <q-icon name="language" color="grey" style="margin-right: 20px" />
 
-          <a :href="law.url" target="_blank">{{ law.name }}</a>
+          <a :href="law.url" target="_blank">{{ law.id + 1 }}.{{ law.name }}</a>
+          <div class="mof-date">{{ law.date }}</div>
         </div>
       </div>
 
@@ -61,68 +62,108 @@ import { QPagination } from "quasar";
 const router = useRouter();
 
 // 定義法律資料
-const laws = reactive([
-  {
-    name: "111.12.21促進民間參與公共建設法",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL009096",
-  },
-  {
-    name: "112.06.20政府有償取得公共服務政策評估作業辦法",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011375",
-  },
-  {
-    name: "112.05.11促進民間參與公共建設案件履約爭議調解收費辦法",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011364",
-  },
-  {
-    name: "112.05.11促進民間參與公共建設案件履約爭議調解規則",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011363",
-  },
-  {
-    name: "112.05.11促進民間參與公共建設案件履約爭議調解會組織準則",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011362",
-  },
-  {
-    name: "112.03.22促進民間參與公共建設案件申請保證金收取及返還作業要點",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011345&kw=",
-  },
-  {
-    name: "111.08.11促進民間參與公共建設專業人員資格考試訓練發證管理及獎勵辦法",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL010132",
-  },
-  {
-    name: "110.10.21民間自行規劃申請參與公共建設作業辦法",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL010130",
-  },
-  {
-    name: "110.07.23民間參與公共建設甄審委員會組織及評審辦法",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL009076",
-  },
-  {
-    name: "110.06.16促進民間參與公共建設法施行細則",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL009077",
-  },
-  {
-    name: "109.05.07促進民間參與公共建設公有土地出租及設定地上權租金優惠辦法",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011327",
-  },
-  {
-    name: "108.06.10促進民間參與公共建設法之重大公共建設範圍",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL010358",
-  },
-  {
-    name: "112.02.15民間參與公共建設金擘獎頒發作業要點",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL009070",
-  },
-  {
-    name: "112.02.10財政部辦理促進民間參與公共建設案件督導及考核作業要點",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011047",
-  },
-  {
-    name: "111.11.29機關辦理民間參與公共建設案件資訊蒐集及獎勵金核發作業要點",
-    url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011281",
-  },
-]);
+const laws = reactive(
+  [
+    {
+      id: 0,
+      date: "111.12.21",
+      name: "促進民間參與公共建設法",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL009096",
+    },
+    {
+      id: 1,
+      date: "112.06.20",
+      name: "政府有償取得公共服務政策評估作業辦法",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011375",
+    },
+    {
+      id: 2,
+      date: "112.05.11",
+      name: "促進民間參與公共建設案件履約爭議調解收費辦法",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011364",
+    },
+    {
+      id: 3,
+      date: "112.05.11",
+      name: "促進民間參與公共建設案件履約爭議調解規則",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011363",
+    },
+    {
+      id: 4,
+      date: "112.05.11",
+      name: "促進民間參與公共建設案件履約爭議調解會組織準則",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011362",
+    },
+    {
+      id: 5,
+      date: "112.03.22",
+      name: "促進民間參與公共建設案件申請保證金收取及返還作業要點",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011345&kw=",
+    },
+    {
+      id: 6,
+      date: "111.08.11",
+      name: "促進民間參與公共建設專業人員資格考試訓練發證管理及獎勵辦法",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL010132",
+    },
+    {
+      id: 7,
+      date: "110.10.21",
+      name: "民間自行規劃申請參與公共建設作業辦法",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL010130",
+    },
+    {
+      id: 8,
+      date: "110.07.23",
+      name: "民間參與公共建設甄審委員會組織及評審辦法",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL009076",
+    },
+    {
+      id: 9,
+      date: "110.06.16",
+      name: "促進民間參與公共建設法施行細則",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL009077",
+    },
+    {
+      id: 10,
+      date: "109.05.07",
+      name: "促進民間參與公共建設公有土地出租及設定地上權租金優惠辦法",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011327",
+    },
+    {
+      id: 11,
+      date: "108.06.10",
+      name: "促進民間參與公共建設法之重大公共建設範圍",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL010358",
+    },
+    {
+      id: 12,
+      date: "112.02.15",
+      name: "民間參與公共建設金擘獎頒發作業要點",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL009070",
+    },
+    {
+      id: 13,
+      date: "112.02.10",
+      name: "財政部辦理促進民間參與公共建設案件督導及考核作業要點",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011047",
+    },
+    {
+      id: 14,
+      date: "111.11.29",
+      name: "機關辦理民間參與公共建設案件資訊蒐集及獎勵金核發作業要點",
+      url: "https://law-out.mof.gov.tw/LawContent.aspx?id=GL011281",
+    },
+  ]
+    .sort((a, b) => {
+      const toDate = (dateStr) => {
+        const [year, month, day] = dateStr.split(".").map(Number);
+        return new Date(year + 1911, month - 1, day); // 民國年轉西元年
+      };
+      return toDate(b.date) - toDate(a.date); // 按日期降序排序
+    })
+    .map((law, index) => ({ ...law, id: index })) // 重新分配 ID
+);
 
 // 定義每頁顯示的最大數量
 const itemsPerPage = 10;
@@ -232,5 +273,11 @@ const navigateTo = (route) => {
   display: flex;
   justify-content: center; /* 水平居中 */
   margin-top: 20px; /* 與法律列表保持一些間距 */
+}
+
+.mof-date {
+  margin-left: auto;
+  color: #888;
+  font-size: 14px;
 }
 </style>

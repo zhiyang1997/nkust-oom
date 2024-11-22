@@ -187,7 +187,11 @@
         </div>
       </template>
       <template v-else>
-        <img :src="selectedAreaImages.default" alt="校區圖片" />
+        <img
+          :src="selectedAreaImages.default"
+          alt="校區圖片"
+          style="max-width: 50%"
+        />
         <div class="icon-text">
           <div class="icon-content">
             <q-icon name="school" size="24px" class="school-icon" />
@@ -220,8 +224,8 @@ let previousAreaId = null; // 用來追蹤上一次點選的區域
 
 // 計算圖片路徑
 const imagePaths = {
-  第一校區: new URL("../img/map/first1.png", import.meta.url).href,
-  楠梓校區: new URL("../img/map/nanzih1.jpeg", import.meta.url).href,
+  第一校區: new URL("/public/img/map/first1.png", import.meta.url).href,
+  楠梓校區: new URL("/public/img/map/nanzih1.jpeg", import.meta.url).href,
 };
 
 const selectedAreaImages = computed(() => {
@@ -239,17 +243,17 @@ const campusDetails = {
   旗津校區: {
     address: "805高雄市旗津區中洲三路1號",
     phone: "07-5721000",
-    image: new URL("../img/map/cijin1.png", import.meta.url).href,
+    image: new URL("/public/img/map/cijin1.png", import.meta.url).href,
   },
   建工校區: {
     address: "807高雄市三民區建工路415號",
     phone: "07-3814526",
-    image: new URL("../img/map/jiangong1.jpg", import.meta.url).href,
+    image: new URL("/public/img/map/jiangong1.jpg", import.meta.url).href,
   },
   燕巢校區: {
     address: "824高雄市燕巢區深中路58號",
     phone: "07-3814526",
-    image: new URL("../img/map/yanchao1.jpg", import.meta.url).href,
+    image: new URL("/public/img/map/yanchao1.jpg", import.meta.url).href,
   },
 };
 
@@ -306,7 +310,7 @@ function handleAreaClick(areaName, areaId, imagePath) {
 
   selectedAreaName.value = areaName;
   selectedImage.value = new URL(
-    `../img/map/${imagePath}`,
+    `/public/img/map/${imagePath}`,
     import.meta.url
   ).href;
   previousAreaId = areaId; // 更新 previousAreaId

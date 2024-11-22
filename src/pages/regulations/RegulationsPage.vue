@@ -8,13 +8,13 @@
           flat
           @click="navigateTo('regulations')"
           class="text-bold"
-          label="法令規章"
+          label="主管法規"
         />
       </q-toolbar>
 
       <!--法令規章 Title-->
       <div class="introduction-title">
-        <h4>法令規章</h4>
+        <h4>主管法規</h4>
         <p>················</p>
       </div>
 
@@ -26,10 +26,10 @@
           <a href="/regulations/mof">財政部</a>
         </div>
 
-        <!-- 右邊方塊 - 本機關 -->
+        <!-- 右邊方塊 - 本校 -->
         <div class="introduction-item">
           <q-icon name="account_tree" color="grey" style="margin-right: 20px" />
-          <a href="/regulations/agency">本機關</a>
+          <a href="/regulations/agency">本校</a>
         </div>
       </div>
     </q-page>

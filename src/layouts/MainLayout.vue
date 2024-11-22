@@ -4,9 +4,15 @@
     <div class="header-top" style="width: 65%; margin: 0 auto">
       <div class="logo-container">
         <img
-          src="/src/img/nkust-oom.jpg"
+          src="/public/img/nkust.png"
           alt="NKUST Logo"
           class="logo"
+          @click="hyperlinkTo('https://www.nkust.edu.tw/index.php')"
+        />
+        <img
+          src="/public/img/oom.jpg"
+          alt="OOM Logo"
+          class="logo2"
           @click="navigateTo()"
         />
       </div>
@@ -145,11 +151,11 @@ const navItems = ref([
     ],
   },
   {
-    label: "法令規章",
+    label: "主管法規",
     route: "/regulations",
     subItems: [
       { label: "財政部", route: "/regulations/mof" },
-      { label: "本機關", route: "/regulations/agency" },
+      { label: "本校", route: "/regulations/agency" },
     ],
   },
   { label: "表單下載", route: "/downloads" },
@@ -228,9 +234,14 @@ const search = () => {
 
 .logo {
   height: auto; /* 控制 logo 的大小 */
-  width: 50%;
+  width: 40%;
 }
 
+.logo2 {
+  height: auto;
+  width: 20%;
+  margin-left: 10px; /* 與虛線保持間距 */
+}
 .links-container {
   display: flex; /* 使用 Flexbox 來進行佈局 */
   justify-content: center; /* 水平居中 */
@@ -259,7 +270,7 @@ const search = () => {
   border-radius: 50px; /* 使按鈕變為橢圓形 */
   transition: background-color 0.3s, color 0.3s; /* 平滑過渡效果 */
   text-align: center;
-  border: 3px solid #5c5c5c; /* 添加 2px 灰色的外框線 */
+  border: 2px solid #5c5c5c; /* 添加 2px 灰色的外框線 */
 }
 
 .link-item:last-child::after {

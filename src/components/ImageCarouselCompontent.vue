@@ -31,10 +31,10 @@ const autoplay = ref(true); // 是否啟動自動播放
 
 // 定義圖片列表
 const images = [
-  { src: "src/img/carousel1.jpg" },
-  { src: "src/img/carousel2.jpg" },
-  { src: "src/img/carousel3.jpg" },
-  { src: "src/img/carousel3.jpg" },
+  { src: "/public/img/carousel1.jpg" },
+  { src: "/public/img/carousel1.jpg" },
+  { src: "/public/img/carousel1.jpg" },
+  { src: "/public/img/carousel1.jpg" },
 ];
 </script>
 

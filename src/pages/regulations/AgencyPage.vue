@@ -8,20 +8,20 @@
           flat
           @click="navigateTo('regulations')"
           class="text-bold"
-          label="法令規章"
+          label="主管法規"
         />
         <span class="separator">/</span>
         <q-btn
           flat
           @click="navigateTo('regulations/agency')"
           class="text-bold"
-          label="本機關"
+          label="本校"
         />
       </q-toolbar>
 
       <!--本機關 Title-->
       <div class="law-title">
-        <h4>本機關</h4>
+        <h4>本校</h4>
         <p>················</p>
       </div>
 
@@ -33,7 +33,8 @@
         >
           <q-icon name="language" color="grey" style="margin-right: 20px" />
 
-          <a :href="law.url" target="_blank">{{ law.name }}</a>
+          <a :href="law.url" target="_blank">{{ law.id + 1 }}.{{ law.name }}</a>
+          <div class="agency-date">{{ law.date }}</div>
         </div>
       </div>
 
@@ -60,9 +61,6 @@ import { QPagination } from "quasar";
 // 使用 Vue Router 來進行導航
 const router = useRouter();
 
-// 定義法律資料
-const laws = reactive([]);
-
 // 定義每頁顯示的最大數量
 const itemsPerPage = 10;
 
@@ -86,6 +84,22 @@ const navigateTo = (route) => {
     router.push("/");
   }
 };
+
+// 定義法律資料
+const laws = [
+  {
+    id: 0,
+    date: "2024/01/01",
+    name: "國立高雄科技大學場地設備借用收費基準表",
+    url: "https://gen.nkust.edu.tw/p/406-1008-15414,r314.php",
+  },
+  {
+    id: 1,
+    date: "2024/01/01",
+    name: "國立高雄科技大學招待所管理要點",
+    url: "https://gen.nkust.edu.tw/p/406-1008-7695,r314.php",
+  },
+];
 </script>
 
 <style scoped>
@@ -171,5 +185,11 @@ const navigateTo = (route) => {
   display: flex;
   justify-content: center; /* 水平居中 */
   margin-top: 20px; /* 與法律列表保持一些間距 */
+}
+
+.agency-date {
+  margin-left: auto;
+  color: #888;
+  font-size: 14px;
 }
 </style>
