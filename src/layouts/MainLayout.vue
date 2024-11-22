@@ -4,13 +4,13 @@
     <div class="header-top" style="width: 65%; margin: 0 auto">
       <div class="logo-container">
         <img
-          src="/public/img/nkust.png"
+          src="/img/nkust.png"
           alt="NKUST Logo"
           class="logo"
           @click="hyperlinkTo('https://www.nkust.edu.tw/index.php')"
         />
         <img
-          src="/public/img/oom.jpg"
+          src="/img/oom.jpg"
           alt="OOM Logo"
           class="logo2"
           @click="navigateTo()"
