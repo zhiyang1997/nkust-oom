@@ -47,17 +47,15 @@
         style="font-size: 14px; margin-left: auto"
         v-if="isSmallScreen"
         @click="toggleMenu"
-        ref="menuButton"
       />
       <!-- 下拉選單 (小視窗) -->
       <q-menu
-        v-model="isMenuOpen"
         anchor="bottom left"
         self="top left"
         fit
         transition-show="fade"
         persistent
-        v-if="menuButtonReady"
+        v-if="isMenuOpen"
       >
         <q-list>
           <q-item
@@ -166,6 +164,7 @@ const menuButtonReady = ref(false); // 确保菜单按钮已初始化
 // 方法
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
+
   console.log(isMenuOpen.value);
 };
 
