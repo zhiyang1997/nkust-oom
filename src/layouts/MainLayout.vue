@@ -16,7 +16,7 @@
           @click="navigateTo()"
         />
       </div>
-      <div class="links-container">
+      <div class="links-container" v-if="!isSmallScreen">
         <ul class="link-list">
           <li
             class="link-item"
@@ -41,10 +41,31 @@
       style="justify-content: center; width: 65%; margin: auto"
     >
       <!-- 左側的三條線圖標作為菜單 -->
-      <q-btn flat no-border icon="menu" style="font-size: 14px" color="black" />
+      <!-- Menu 按鈕 -->
+      <q-btn
+        flat
+        no-border
+        icon="menu"
+        style="font-size: 14px; margin-left: auto"
+        v-if="isSmallScreen"
+        @click="toggleMenu"
+      />
+      <!-- 下拉選單 -->
+      <q-menu v-model="isMenuOpen" anchor="bottom right" transition-show="fade">
+        <q-list>
+          <q-item
+            v-for="(item, index) in navItems"
+            :key="index"
+            clickable
+            @click="navigateTo(item.route)"
+          >
+            <q-item-section>{{ item.label }}</q-item-section>
+          </q-item>
+        </q-list>
+      </q-menu>
 
       <!-- 中間的導航欄清單 -->
-      <ul class="nav-list">
+      <ul class="nav-list" v-if="!isSmallScreen">
         <li
           v-for="(item, index) in navItems"
           :key="index"
@@ -163,6 +184,15 @@ const navItems = ref([
   { label: "聯絡我們", route: "/contact" },
 ]);
 
+// 響應式狀態
+const isSmallScreen = ref(false);
+const isMenuOpen = ref(false);
+
+// 方法
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+
 // 控制每個下拉選單是否顯示
 const menus = ref(Array(navItems.value.length).fill(false));
 
@@ -215,6 +245,16 @@ const search = () => {
     router.push({ name: "search", query: { q: query.value } });
   }
 };
+
+// 檢測螢幕尺寸
+const checkScreenSize = () => {
+  isSmallScreen.value = window.innerWidth <= 768;
+};
+
+onMounted(() => {
+  checkScreenSize();
+  window.addEventListener("resize", checkScreenSize);
+});
 </script>
 
 <style scoped>

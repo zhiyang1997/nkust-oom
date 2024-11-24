@@ -1,5 +1,5 @@
 <template>
-  <div class="map-container" style="width: 65%; margin: auto">
+  <div class="map-container" style="width: 60%; margin: auto">
     <!-- 按鈕容器 -->
     <div class="button-container">
       <button @click="switchView('campus')">校區分布圖</button>
@@ -14,8 +14,8 @@
         data-name="圖層 1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 69.97 121.89"
-        width="300"
-        height="400"
+        width="200"
+        height="350"
       >
         <path
           id="area1"
@@ -143,11 +143,7 @@
       class="info-card"
       v-show="currentView === 'campus' && selectedAreaName"
     >
-      <img
-        :src="selectedAreaImages.default"
-        alt="校區圖片"
-        style="max-width: 60%"
-      />
+      <img :src="selectedAreaImages.default" alt="校區圖片" />
       <div class="icon-text">
         <div class="icon-content">
           <q-icon name="school" size="24px" class="school-icon" />
@@ -184,7 +180,7 @@ const selectedPhone = ref("");
 const selectedImage = ref("");
 let previousAreaId = null; // 用來追蹤上一次點選的區域
 
-const currentView = ref("campus"); // 當前顯示的視圖，預設為校區分布圖
+const currentView = ref(""); // 當前顯示的視圖，預設為校區分布圖
 
 // 切換視圖並重置狀態
 function switchView(view) {
@@ -323,8 +319,9 @@ function handleAreaClick(areaName, areaId, imagePath) {
 }
 
 .info-card {
-  flex: 0 1 40%;
+  flex: 0 1 auto;
   padding: 10px;
+  max-width: 30%;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* 卡片陰影效果 */
