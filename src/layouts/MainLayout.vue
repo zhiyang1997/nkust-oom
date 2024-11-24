@@ -62,7 +62,12 @@
             v-for="(item, index) in navItems"
             :key="index"
             clickable
-            @click="navigateTo(item.route)"
+            @click="
+              () => {
+                navigateTo(item.route);
+                isMenuOpen = false;
+              }
+            "
           >
             <q-item-section>{{ item.label }}</q-item-section>
           </q-item>
