@@ -30,18 +30,16 @@
           >
             校務系統
           </li>
-          <!-- <li class="link-item" @click="navigateTo('/login')">後臺管理</li> -->
         </ul>
       </div>
     </div>
 
-    <!-- 原本的 bar 區域 -->
+    <!-- 工具列 -->
     <q-toolbar
       class="toolbar-container bg-grey-3"
       style="justify-content: center; width: 65%; margin: auto"
     >
-      <!-- 左側的三條線圖標作為菜單 -->
-      <!-- Menu 按鈕 -->
+      <!-- Menu 按鈕 (小視窗) -->
       <q-btn
         flat
         no-border
@@ -49,9 +47,18 @@
         style="font-size: 14px; margin-left: auto"
         v-if="isSmallScreen"
         @click="toggleMenu"
+        ref="menuButton"
       />
-      <!-- 下拉選單 -->
-      <q-menu v-model="isMenuOpen" anchor="bottom right" transition-show="fade">
+      <!-- 下拉選單 (小視窗) -->
+      <q-menu
+        v-model="isMenuOpen"
+        anchor="bottom left"
+        self="top left"
+        fit
+        transition-show="fade"
+        persistent
+        v-if="menuButtonReady"
+      >
         <q-list>
           <q-item
             v-for="(item, index) in navItems"
@@ -64,7 +71,7 @@
         </q-list>
       </q-menu>
 
-      <!-- 中間的導航欄清單 -->
+      <!-- 中間的導航欄清單 (大視窗) -->
       <ul class="nav-list" v-if="!isSmallScreen">
         <li
           v-for="(item, index) in navItems"
@@ -77,6 +84,7 @@
         >
           {{ item.label }}
 
+          <!-- 只渲染有 subItems 的下拉選單 -->
           <q-menu
             v-if="item.subItems"
             v-model="menus[index]"
@@ -98,50 +106,17 @@
             </q-list>
           </q-menu>
         </li>
-        <!-- <li>
-          <div class="search-container">
-            若 isSearching 為 false，顯示放大鏡圖示
-
-            <button
-              v-if="!isSearching"
-              @click="toggleSearch"
-              class="search-button"
-            >
-              <q-icon name="search" size="sm" />
-            </button>
-
-            若 isSearching 為 true，顯示輸入框和按鈕
-            <div v-else class="search-bar">
-              <input
-                v-model="query"
-                type="text"
-                placeholder="輸入關鍵字"
-                class="search-input"
-              />
-              <button @click="search" class="search-button">
-                <q-icon name="search" size="sm" />
-              </button>
-              <button @click="toggleSearch" class="close-button">
-                <q-icon name="close" size="sm" />
-              </button>
-            </div>
-          </div>
-        </li> -->
       </ul>
     </q-toolbar>
 
-    <!-- 插槽：在 bar 下面的區域插入內容 -->
-    <!-- <div style="width: 65%; margin: 0 auto; margin-top: 2%"> -->
-    <!-- <slot></slot> -->
-    <!-- </div> -->
-
+    <!-- 主內容 -->
     <router-view />
     <FooterComponent></FooterComponent>
   </q-layout>
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, nextTick } from "vue";
 import { useRouter } from "vue-router";
 import FooterComponent from "./FooterComponent.vue";
 
@@ -187,10 +162,11 @@ const navItems = ref([
 // 響應式狀態
 const isSmallScreen = ref(false);
 const isMenuOpen = ref(false);
-
+const menuButtonReady = ref(false); // 确保菜单按钮已初始化
 // 方法
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
+  console.log(isMenuOpen.value);
 };
 
 // 控制每個下拉選單是否顯示
@@ -254,6 +230,11 @@ const checkScreenSize = () => {
 onMounted(() => {
   checkScreenSize();
   window.addEventListener("resize", checkScreenSize);
+
+  // 确保 menuButton 初始化完成
+  nextTick(() => {
+    menuButtonReady.value = true;
+  });
 });
 </script>
 
