@@ -49,4 +49,20 @@
   justify-content: center; /* 內部內容垂直居中 */
   padding: 0 10px; /* 控制內部間距，防止太靠邊 */
 }
+
+/* RWD 媒體查詢：小螢幕設置垂直排列 */
+@media (max-width: 768px) {
+  .footer-contact {
+    flex-direction: column; /* 切換為垂直排列 */
+  }
+
+  .footer-contact div {
+    max-width: 100%; /* 每個聯繫項佔滿寬度 */
+    margin-bottom: 10px; /* 每個項目之間增加間距 */
+  }
+
+  .footer-contact div:last-child {
+    margin-bottom: 0; /* 移除最後一項的多餘間距 */
+  }
+}
 </style>

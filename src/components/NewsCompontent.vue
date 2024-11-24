@@ -283,4 +283,28 @@ const getImageUrl = (photo) => {
   color: inherit; /* 保持字體顏色與父級元素一致 */
   transition: background-color 0.3s ease, color 0.3s ease; /* 平滑過渡效果 */
 }
+
+/* RWD: 小螢幕調整樣式 */
+@media (max-width: 768px) {
+  .news-photo {
+    flex: 0 0 10%; /* 縮小圖片比例 */
+  }
+
+  .news-image {
+    max-width: 80px; /* 縮小圖片寬度 */
+  }
+
+  .news-item {
+    padding: 5px; /* 減小項目內邊距 */
+  }
+
+  .news-index {
+    font-size: 12px; /* 縮小文字字體 */
+  }
+
+  .news-date {
+    font-size: 10px; /* 縮小日期字體 */
+    margin-left: 5px;
+  }
+}
 </style>
