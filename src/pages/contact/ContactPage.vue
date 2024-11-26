@@ -151,6 +151,7 @@ li {
   color: #005580;
   font-weight: bold;
   text-decoration: none;
+  word-break: break-word; /* 長文字斷行 */
 }
 
 .email-link:hover {

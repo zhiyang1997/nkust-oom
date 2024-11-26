@@ -164,9 +164,7 @@
     </div>
     <!-- S 廊道圖 -->
     <div v-if="currentView === 'hallway'" class="hallway-container">
-      <h3>S 廊道圖展示</h3>
-      <p>這裡是 S 廊道圖的內容</p>
-      <!-- 你可以在這裡添加任何需要的內容 -->
+      <img class="s-map" src="/img/map/S_Map2.png" alt="S廊道圖片" />
     </div>
   </div>
 </template>
@@ -361,6 +359,15 @@ function handleAreaClick(areaName, areaId, imagePath) {
   display: flex;
   flex-direction: column; /* 垂直排列 */
   align-items: center; /* 圖片水平置中 */
+}
+
+.s-map {
+  display: flex; /* 使用 Flexbox */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  flex: 1;
+  max-width: 40%; /* 限制最大寬度 */
+  margin: auto; /* 保證居中對齊 */
 }
 
 .split-container {

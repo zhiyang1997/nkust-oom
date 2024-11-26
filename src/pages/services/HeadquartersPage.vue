@@ -33,11 +33,8 @@
           :key="index"
         >
           <div class="left-image">
-            <p
-              class="item-content"
-              v-html="info.image"
-              style="font-size: larger"
-            ></p>
+            <p v-html="info.title" style="font-size: larger"></p>
+            <img :src="info.image" alt="照片" class="profile-image" />
           </div>
           <div class="vertical-line"></div>
           <div class="right-info">
@@ -51,7 +48,11 @@
             </div>
             <div class="info-item">
               <p class="item-label">現任職務：</p>
-              <p class="item-content" v-html="info.position"></p>
+              <ul class="item-content">
+                <li v-for="(task, index) in info.position" :key="index">
+                  {{ task }}
+                </li>
+              </ul>
             </div>
             <div class="info-item">
               <p class="item-label">學經歷：</p>
@@ -73,11 +74,8 @@
           :key="index"
         >
           <div class="left-image">
-            <p
-              class="item-content"
-              v-html="info.image"
-              style="font-size: larger"
-            ></p>
+            <p v-html="info.title"></p>
+            <img :src="info.image" alt="照片" class="profile-image" />
           </div>
           <div class="vertical-line"></div>
           <div class="right-info">
@@ -91,7 +89,11 @@
             </div>
             <div class="info-item">
               <p class="item-label">工作項目：</p>
-              <p class="item-content" v-html="info.responsibility"></p>
+              <ul class="item-content">
+                <li v-for="(task, index) in info.responsibility" :key="index">
+                  {{ task }}
+                </li>
+              </ul>
             </div>
             <div class="info-item">
               <p class="item-label">代理人：</p>
@@ -114,11 +116,15 @@ const router = useRouter();
 // 定義關於本處的資料 (置頂的列表)
 const aboutInfo = reactive([
   {
-    image: "高瑞鍾<br>處長",
+    title: "高瑞鍾<br>處長",
+    image: "/img/people/zon.png",
     phone: "(07)3617141 轉 23131、23470",
     email: "jckao@nkust.edu.tw",
-    position:
-      "國立高雄科技大學 經營管理處 處長<br>國立高雄科技大學 教育事業暨產品推廣處 處長<br>國立高雄科技大學 海事產管所 教授",
+    position: [
+      "國立高雄科技大學 經營管理處 處長",
+      "國立高雄科技大學 教育事業暨產品推廣處 處長",
+      "國立高雄科技大學 海事產管所 教授",
+    ],
     education: "學經歷總表",
     responsibility: "綜理 經營管理處 業務。",
   },
@@ -128,19 +134,37 @@ const aboutInfo = reactive([
 // 第二個列表的資料
 const anotherListData = reactive([
   {
-    image: "賴杏雲<br>約用組員",
+    title: "賴杏雲<br>約用組員",
+    image: "/img/people/lai.png",
     phone: "(07)3617141 轉 22101",
     email: "xingyun@nkust.edu.tw",
-    responsibility:
-      "1.處長行程安排及公文核稿。<br>2.彙整及召開處務會議。<br>3.彙整各項工作報告（含專案）進度。<br>4.彙整及管考年度計畫。<br>5.彙整及提報業務績效報告資料。<br>6.經營管理處各類專案之規劃與執行。<br>7.其他行政支援及臨時交辦事項。",
+    responsibility: [
+      "處長行程安排及公文核稿。",
+      "彙整及召開處務會議。",
+      "彙整各項工作報告（含專案）進度。",
+      "彙整及管考年度計畫。",
+      "彙整及提報業務績效報告資料。",
+      "經營管理處各類專案之規劃與執行。",
+      "其他行政支援及臨時交辦事項。",
+    ],
     agent: "1.蘇宸儀",
   },
   {
-    image: "蘇宸儀<br>約用助理員",
+    title: "蘇宸儀<br>約用助理員",
+    image: "/img/people/su.png",
     phone: "(07)3617141 轉 22114",
     email: "judy2022@nkust.edu.tw",
-    responsibility:
-      "1.公文分發及稽催。<br>2.大事紀要、登革熱場域管理及自主管理填報窗口。<br>3.網站管理及維護。<br>4.辦理處內財物盤點。<br>5.修訂經營管理處相關法規。<br>6.分配處內預算及執行控管。<br>7.管理處內物品及採購核銷。<br>8.管理經營管理處兼任助理。<br>9.其他行政支援及臨時交辦事項。",
+    responsibility: [
+      "公文分發及稽催。",
+      "大事紀要、登革熱場域管理及自主管理填報窗口。",
+      "網站管理及維護。",
+      "辦理處內財物盤點。",
+      "修訂經營管理處相關法規。",
+      "分配處內預算及執行控管。",
+      "管理處內物品及採購核銷。",
+      "管理經營管理處兼任助理。",
+      "其他行政支援及臨時交辦事項。",
+    ],
     agent: "1.賴杏雲",
   },
 ]);
@@ -219,14 +243,30 @@ const navigateTo = (route) => {
 
 /* 左邊圖片文字樣式 */
 .left-image {
-  flex: 0 0 20%; /* 確保這一欄的寬度佔20% */
+  flex: 0 0 20%; /* 确保宽度占 20% */
   display: flex;
-  align-items: center; /* 垂直置中 */
-  justify-content: center; /* 水平置中 */
-  text-align: center; /* 確保文字居中 */
+  flex-direction: column; /* 垂直排列文字和图片 */
+  align-items: center; /* 水平居中 */
+  justify-content: flex-start; /* 垂直对齐到顶部 */
+  text-align: center; /* 确保文字居中 */
   color: #2c3e50;
-  font-size: 28px; /* 調整字體大小 */
-  font-weight: bold; /* 設置字體為粗體 */
+  font-size: 28px; /* 调整文字大小 */
+  font-weight: bold; /* 字体加粗 */
+}
+
+.left-image p {
+  margin: 0; /* 移除默认的上下 margin */
+  padding: 0; /* 确保没有 padding */
+}
+
+.profile-image {
+  width: 100%;
+  max-width: 120px; /* 控制图片宽度 */
+  height: auto; /* 保持图片比例 */
+  border-radius: 50%; /* 圆形头像效果 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+  object-fit: cover; /* 确保图片裁剪后不会失真 */
+  margin-top: 10%;
 }
 
 /* 中間虛線 */
@@ -251,7 +291,6 @@ const navigateTo = (route) => {
 }
 
 .item-label {
-  flex: 0 0 150px;
   font-weight: bold;
   margin-right: 20px;
   color: #34495e;
@@ -261,7 +300,28 @@ const navigateTo = (route) => {
   flex: 1;
   color: #2c3e50;
   font-size: 20px;
-  line-height: 1.6;
   word-break: break-word;
+}
+
+/* 小螢幕適配 */
+@media (max-width: 768px) {
+  .headquarters-item,
+  .another-item {
+    flex-direction: column; /* 從左右布局改為上下布局 */
+    align-items: center; /* 水平居中 */
+  }
+
+  .left-image {
+    flex: none; /* 不限制寬度 */
+    margin-bottom: 20px; /* 圖片與內容區之間的間距 */
+  }
+  .right-info {
+    display: none; /* 隱藏 right-info */
+  }
+
+  /* 隱藏虛線分隔符 */
+  .vertical-line {
+    display: none;
+  }
 }
 </style>

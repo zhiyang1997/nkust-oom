@@ -33,11 +33,8 @@
           :key="index"
         >
           <div class="left-image">
-            <p
-              class="item-content"
-              v-html="info.image"
-              style="font-size: larger"
-            ></p>
+            <p v-html="info.title"></p>
+            <img :src="info.image" alt="照片" class="profile-image" />
           </div>
           <div class="vertical-line"></div>
           <div class="right-info">
@@ -51,7 +48,11 @@
             </div>
             <div class="info-item">
               <p class="item-label">工作項目：</p>
-              <p class="item-content" v-html="info.responsibility"></p>
+              <ul class="item-content">
+                <li v-for="(task, index) in info.responsibility" :key="index">
+                  {{ task }}
+                </li>
+              </ul>
             </div>
             <div class="info-item">
               <p class="item-label">代理人：</p>
@@ -69,11 +70,8 @@
           :key="index"
         >
           <div class="left-image">
-            <p
-              class="item-content"
-              v-html="info.image"
-              style="font-size: larger"
-            ></p>
+            <p v-html="info.title"></p>
+            <img :src="info.image" alt="照片" class="profile-image" />
           </div>
           <div class="vertical-line"></div>
           <div class="right-info">
@@ -110,7 +108,8 @@ const router = useRouter();
 // 定義關於本處的資料 (置頂的列表)
 const aboutInfo = reactive([
   {
-    image: "組長",
+    title: "待補<br>組長",
+    image: "/img/people/zero.jpg",
     phone: "",
     email: "",
     position: "",
@@ -123,7 +122,8 @@ const aboutInfo = reactive([
 // 第二個列表的資料
 const anotherListData = reactive([
   {
-    image: "待補<br>約用組員",
+    title: "待補<br>約用組員",
+    image: "/img/people/zero.jpg",
     phone: "",
     email: "",
     responsibility: "",
@@ -205,14 +205,30 @@ const navigateTo = (route) => {
 
 /* 左邊圖片文字樣式 */
 .left-image {
-  flex: 0 0 20%; /* 確保這一欄的寬度佔20% */
+  flex: 0 0 20%; /* 确保宽度占 20% */
   display: flex;
-  align-items: center; /* 垂直置中 */
-  justify-content: center; /* 水平置中 */
-  text-align: center; /* 確保文字居中 */
+  flex-direction: column; /* 垂直排列文字和图片 */
+  align-items: center; /* 水平居中 */
+  justify-content: flex-start; /* 垂直对齐到顶部 */
+  text-align: center; /* 确保文字居中 */
   color: #2c3e50;
-  font-size: 28px; /* 調整字體大小 */
-  font-weight: bold; /* 設置字體為粗體 */
+  font-size: 28px; /* 调整文字大小 */
+  font-weight: bold; /* 字体加粗 */
+}
+
+.left-image p {
+  margin: 0; /* 移除默认的上下 margin */
+  padding: 0; /* 确保没有 padding */
+}
+
+.profile-image {
+  width: 100%;
+  max-width: 120px; /* 控制图片宽度 */
+  height: auto; /* 保持图片比例 */
+  border-radius: 50%; /* 圆形头像效果 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+  object-fit: cover; /* 确保图片裁剪后不会失真 */
+  margin-top: 10%;
 }
 
 /* 中間虛線 */
@@ -237,7 +253,6 @@ const navigateTo = (route) => {
 }
 
 .item-label {
-  flex: 0 0 150px;
   font-weight: bold;
   margin-right: 20px;
   color: #34495e;
@@ -249,5 +264,36 @@ const navigateTo = (route) => {
   font-size: 20px;
   line-height: 1.6;
   word-break: break-word;
+}
+
+.profile-image {
+  width: 100%;
+  max-width: 120px; /* 控制图片宽度 */
+  height: auto; /* 保持图片比例 */
+  border-radius: 50%; /* 圆形头像效果 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+  object-fit: cover; /* 确保图片裁剪后不会失真 */
+}
+
+/* 小螢幕適配 */
+@media (max-width: 768px) {
+  .headquarters-item,
+  .another-item {
+    flex-direction: column; /* 從左右布局改為上下布局 */
+    align-items: center; /* 水平居中 */
+  }
+
+  .left-image {
+    flex: none; /* 不限制寬度 */
+    margin-bottom: 20px; /* 圖片與內容區之間的間距 */
+  }
+  .right-info {
+    display: none; /* 隱藏 right-info */
+  }
+
+  /* 隱藏虛線分隔符 */
+  .vertical-line {
+    display: none;
+  }
 }
 </style>
