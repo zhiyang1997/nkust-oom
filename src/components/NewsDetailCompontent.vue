@@ -1,6 +1,6 @@
 <template>
   <q-page-container>
-    <q-page class="news-detail-container" style="width: 65%; margin: 0% auto">
+    <q-page class="news-detail-container">
       <q-toolbar class="bg-grey-3 full-width">
         <q-btn flat @click="navigateTo()" class="text-bold" label="首頁" />
         <span class="separator">/</span>
@@ -207,6 +207,8 @@ const getImageUrl = (photo) => {
 /* 設計主容器樣式 */
 .news-detail-container {
   padding: 20px;
+  width: 65%;
+  margin: 0% auto;
 }
 
 /* 標題區域設計 */
@@ -272,5 +274,14 @@ const getImageUrl = (photo) => {
 
 .news-detail-content:last-child {
   border-bottom: none;
+}
+
+/* 小螢幕適配 */
+@media (max-width: 768px) {
+  .news-detail-container {
+    padding: 20px;
+    margin: 0;
+    width: 100%;
+  }
 }
 </style>

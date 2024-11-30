@@ -295,7 +295,7 @@ const getImageUrl = (photo) => {
 /* 小螢幕適配 */
 @media (max-width: 768px) {
   .news-container {
-    padding: 0;
+    padding: 20px;
     margin: 0;
     width: 100%;
   }
