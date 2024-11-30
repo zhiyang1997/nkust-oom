@@ -1,6 +1,6 @@
 <template>
   <q-page-container>
-    <q-page class="download-container" style="width: 65%; margin: 0% auto">
+    <q-page class="download-container">
       <q-toolbar class="bg-grey-3 full-width">
         <q-btn flat @click="navigateTo()" class="text-bold" label="首頁" />
         <span class="separator">/</span>
@@ -61,6 +61,8 @@ const navigateTo = (route) => {
 <style scoped>
 .download-container {
   padding: 20px;
+  width: 65%;
+  margin: 0% auto;
 }
 
 .download-title {
@@ -134,5 +136,13 @@ const navigateTo = (route) => {
   flex-direction: column; /* 垂直排列元素 */
   justify-content: center; /* 垂直居中 */
   text-align: left; /* 保證文本左對齊 */
+}
+
+@media (max-width: 768px) {
+  .download-container {
+    padding: 20px;
+    width: 100%;
+    margin: 0% auto;
+  }
 }
 </style>

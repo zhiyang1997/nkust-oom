@@ -1,6 +1,6 @@
 <template>
   <q-page-container>
-    <q-page class="about-container" style="width: 65%; margin: 0% auto">
+    <q-page class="about-container">
       <q-toolbar class="bg-grey-3 full-width">
         <q-btn flat @click="navigateTo()" class="text-bold" label="首頁" />
         <span class="separator">/</span>
@@ -64,6 +64,8 @@ const navigateTo = (route) => {
 <style scoped>
 .about-container {
   padding: 20px;
+  width: 65%;
+  margin: 0% auto;
 }
 
 .about-title {
@@ -126,5 +128,13 @@ const navigateTo = (route) => {
 
 .about-item:not(:last-child) {
   border-bottom: 1px dashed #ccc; /* 非最後一個項目使用虛線分隔 */
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 20px;
+    width: 100%;
+    margin: 0% auto;
+  }
 }
 </style>

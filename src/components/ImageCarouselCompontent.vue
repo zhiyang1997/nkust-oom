@@ -39,9 +39,22 @@ const images = [
 </script>
 
 <style scoped>
+.q-carousel {
+  justify-content: center;
+  width: 65%; /* 預設桌面模式寬度 */
+  margin: auto;
+}
 .custom-image {
   width: 100%;
   height: 100%;
   object-fit: contain; /* 保持圖片完整不裁切 */
+}
+/* 小螢幕適配 */
+@media (max-width: 768px) {
+  .q-carousel {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
 }
 </style>

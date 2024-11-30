@@ -24,7 +24,9 @@
             class="cls-1"
             @mouseenter="handleMouseEnter('湖內區', 'area1')"
             @mouseleave="handleMouseLeave('area1')"
-            @click="handleAreaClick('湖內校區', 'area1', 'hu1.jpg')"
+            @click="
+              handleAreaClick('湖內校區(114/08/01接管)', 'area1', 'hu1.jpg')
+            "
             d="M163.45,594.22l.46,1.47h0a3.71,3.71,0,0,1,1.44,2.94h0a6.31,6.31,0,0,0,.43,2.27l.57,1.46.75-1.25a.32.32,0,0,1,.52,0,2.58,2.58,0,0,0,.62.51c.56.39-.72,1.51-.72,1.51l.37,0a2.83,2.83,0,0,1,2.26,1.75h0a1.49,1.49,0,0,0,1.24.91l1.78.17a5.62,5.62,0,0,0,1.69-.11l1.74-.38a3.75,3.75,0,0,0,2.33-1.63l.79-1.21a4,4,0,0,0,.52-1.24h0a.93.93,0,0,0-.89-1.13h0a3,3,0,0,1-2.6-1.53h0a2,2,0,0,0-1.75-1h0a1.83,1.83,0,0,1-1.82-1.72l0-1a.6.6,0,0,0-1-.42l-.75.65a2,2,0,0,1-1.74.41l-1.54-.38a5.35,5.35,0,0,1-1.15-.44l-2.58-1.36A.62.62,0,0,0,163.45,594.22Z"
             transform="translate(-159.2 -592.76)"
           />
@@ -230,7 +232,7 @@ const campusDetails = {
     phone: "07-3814526",
     image: new URL("/img/map/yanchao1.jpg", import.meta.url).href,
   },
-  湖內校區: {
+  "湖內校區(114/08/01接管)": {
     address: "829高雄市湖內區東方路110號",
     phone: "07-6011000",
     image: new URL("/img/map/hu1.jpg", import.meta.url).href,
@@ -489,6 +491,14 @@ h6 {
 
   .info-card {
     max-width: 100%; /* 卡片佔滿寬度 */
+  }
+  .s-map {
+    display: flex; /* 使用 Flexbox */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    flex: 1;
+    max-width: 80%; /* 限制最大寬度 */
+    margin: auto; /* 保證居中對齊 */
   }
 }
 </style>

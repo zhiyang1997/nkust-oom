@@ -1,8 +1,8 @@
 <template>
   <q-layout view="hHh lpR fFf">
     <!-- 新增的圖片和鏈接區域 -->
-    <div class="header-top" style="width: 65%; margin: 0 auto">
-      <div class="logo-container">
+    <div class="header-top">
+      <div class="logo-container" v-if="!isSmallScreen">
         <img
           src="/img/nkust.png"
           alt="NKUST Logo"
@@ -10,7 +10,7 @@
           @click="hyperlinkTo('https://www.nkust.edu.tw/index.php')"
         />
         <img
-          src="/img/oom.jpg"
+          src="/img/oom.png"
           alt="OOM Logo"
           class="logo2"
           @click="navigateTo()"
@@ -37,8 +37,23 @@
     <!-- 工具列 -->
     <q-toolbar
       class="toolbar-container bg-grey-3"
-      style="justify-content: center; width: 65%; margin: auto"
+      style="justify-content: center"
     >
+      <!-- 手機模式下的 Logo -->
+      <div class="logo-container mobile-logo" v-if="isSmallScreen">
+        <img
+          src="/img/nkust.png"
+          alt="NKUST Logo"
+          class="logo"
+          @click="hyperlinkTo('https://www.nkust.edu.tw/index.php')"
+        />
+        <img
+          src="/img/oom.png"
+          alt="OOM Logo"
+          class="logo2"
+          @click="navigateTo()"
+        />
+      </div>
       <!-- Menu 按鈕 (小視窗) -->
       <q-btn
         flat
@@ -250,6 +265,14 @@ onMounted(() => {
   align-items: center;
   padding: 10px 0;
   background-color: white;
+  width: 65%; /* 預設桌面模式寬度 */
+  margin: 0 auto; /* 居中 */
+}
+
+.toolbar-container {
+  justify-content: center;
+  width: 65%; /* 預設桌面模式寬度 */
+  margin: auto;
 }
 
 .logo-container {
@@ -338,5 +361,15 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* 手機模式樣式調整 */
+@media (max-width: 768px) {
+  .header-top,
+  .toolbar-container {
+    width: 100%; /* 設定寬度為 100% */
+    margin: 0; /* 移除左右外邊距 */
+    padding: 0; /* 移除內邊距，確保滿版 */
+  }
 }
 </style>

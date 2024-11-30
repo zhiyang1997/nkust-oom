@@ -1,6 +1,6 @@
 <template>
   <q-page-container>
-    <q-page class="structure-container" style="width: 65%; margin: 0% auto">
+    <q-page class="structure-container">
       <q-toolbar class="bg-grey-3 full-width">
         <q-btn flat @click="navigateTo()" class="text-bold" label="首頁" />
         <span class="separator">/</span>
@@ -76,6 +76,8 @@ const navigateTo = (route) => {
 <style scoped>
 .structure-container {
   padding: 20px;
+  width: 65%;
+  margin: 0% auto;
 }
 
 .structure-title {
@@ -150,5 +152,13 @@ const navigateTo = (route) => {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   font-size: 18px; /* 增大字體 */
+}
+
+@media (max-width: 768px) {
+  .structure-container {
+    padding: 20px;
+    width: 100%;
+    margin: 0% auto;
+  }
 }
 </style>

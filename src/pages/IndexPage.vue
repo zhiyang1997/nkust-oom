@@ -1,6 +1,6 @@
 <template>
   <!-- 插槽：在 bar 下面的區域插入內容 -->
-  <div style="width: 65%; margin: 0 auto; margin-top: 2%">
+  <div>
     <!-- <slot></slot> -->
     <!-- 將輪播圖片作為內容插入 -->
     <ImageCarousel />
@@ -8,7 +8,7 @@
 
   <!-- 最新消息區域 -->
   <q-page-container>
-    <q-page class="news-container" style="width: 65%; margin: 0% auto">
+    <q-page>
       <NewsCompontent />
     </q-page>
   </q-page-container>

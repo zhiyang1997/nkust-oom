@@ -1,6 +1,6 @@
 <template>
   <q-page-container>
-    <q-page class="headquarters-container" style="width: 65%; margin: auto">
+    <q-page class="headquarters-container">
       <q-toolbar class="bg-grey-3 full-width">
         <q-btn flat @click="navigateTo()" class="text-bold" label="首頁" />
         <span class="separator">/</span>
@@ -183,6 +183,8 @@ const navigateTo = (route) => {
 /* 主要容器样式 */
 .headquarters-container {
   padding: 20px;
+  width: 65%;
+  margin: auto;
 }
 
 .separator {
@@ -287,17 +289,16 @@ const navigateTo = (route) => {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .item-label {
   font-weight: bold;
-  margin-right: 20px;
+  margin-right: 10px;
   color: #34495e;
 }
 
 .item-content {
-  flex: 1;
   color: #2c3e50;
   font-size: 20px;
   word-break: break-word;
@@ -315,13 +316,29 @@ const navigateTo = (route) => {
     flex: none; /* 不限制寬度 */
     margin-bottom: 20px; /* 圖片與內容區之間的間距 */
   }
-  .right-info {
-    display: none; /* 隱藏 right-info */
-  }
 
   /* 隱藏虛線分隔符 */
   .vertical-line {
     display: none;
+  }
+  .headquarters-container {
+    padding: 20px;
+    width: 100%;
+    margin: 0% auto;
+  }
+  .item-content {
+    color: #2c3e50;
+    font-size: 14px;
+    word-break: break-word;
+  }
+
+  .item-label {
+    white-space: nowrap; /* 禁止換行 */
+    text-overflow: ellipsis; /* 超出內容以省略號表示 */
+    display: inline-block; /* 確保內容是行內區塊 */
+    max-width: 100px; /* 設定最大寬度，根據需要調整 */
+    font-weight: bold; /* 保持字體粗體 */
+    font-size: 14px;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer-section" style="width: 65%; margin: 2% auto">
+  <footer class="footer-section">
     <div class="container">
       <div class="footer-contact">
         <div>電話：07-3617141 Ext. 22112</div>
@@ -20,6 +20,8 @@
   text-align: center;
   margin: 20px; /* 距離內容區的間距 */
   font-size: 18px; /* 整體字體大小 */
+  width: 65%;
+  margin: 2% auto;
 }
 
 .footer-contact {
@@ -63,6 +65,12 @@
 
   .footer-contact div:last-child {
     margin-bottom: 0; /* 移除最後一項的多餘間距 */
+  }
+
+  .footer-section {
+    width: 100%; /* 設定寬度為 100% */
+    margin: 0; /* 移除左右外邊距 */
+    padding: 0; /* 移除內邊距，確保滿版 */
   }
 }
 </style>

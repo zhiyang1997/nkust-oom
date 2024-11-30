@@ -1,6 +1,6 @@
 <template>
   <q-page-container>
-    <q-page class="contact-container" style="width: 65%; margin: 0% auto">
+    <q-page class="contact-container">
       <q-toolbar class="bg-grey-3 full-width">
         <q-btn flat @click="navigateTo()" class="text-bold" label="首頁" />
         <span class="separator">/</span>
@@ -78,6 +78,8 @@ const navigateTo = (route) => {
 <style scoped>
 .contact-container {
   padding: 20px;
+  width: 65%;
+  margin: 0% auto;
 }
 
 .contact-title {
@@ -157,5 +159,13 @@ li {
 .email-link:hover {
   text-decoration: underline;
   color: #003366;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 20px;
+    width: 100%;
+    margin: 0% auto;
+  }
 }
 </style>

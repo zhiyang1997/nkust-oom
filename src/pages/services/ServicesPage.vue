@@ -1,6 +1,6 @@
 <template>
   <q-page-container>
-    <q-page class="services-container" style="width: 65%; margin: 0% auto">
+    <q-page class="services-container">
       <q-toolbar class="bg-grey-3 full-width">
         <q-btn flat @click="navigateTo()" class="text-bold" label="首頁" />
         <span class="separator">/</span>
@@ -61,6 +61,8 @@ const navigateTo = (route) => {
 <style scoped>
 .services-container {
   padding: 20px;
+  width: 65%;
+  margin: 0% auto;
 }
 
 .separator {
@@ -137,5 +139,22 @@ const navigateTo = (route) => {
 
 .services-item a:hover {
   color: #007bff; /* 懸停時變為藍色 */
+}
+
+@media (max-width: 768px) {
+  .services-container {
+    padding: 20px;
+    width: 100%;
+    margin: 0% auto;
+  }
+  .services-list {
+    flex-direction: column; /* 將排列方向改為上下 */
+    align-items: center; /* 方塊居中對齊 */
+    gap: 20px; /* 每個方塊間距 */
+  }
+  .services-item {
+    width: 80%; /* 占滿父容器寬度 */
+    margin-bottom: 20px; /* 增加下方間距 */
+  }
 }
 </style>

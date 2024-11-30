@@ -1,6 +1,6 @@
 <template>
   <q-page-container>
-    <q-page class="news-container" style="width: 65%; margin: 0% auto">
+    <q-page class="news-container">
       <q-toolbar class="bg-grey-3">
         <q-btn flat @click="navigateTo()" class="text-bold" label="首頁" />
         <span class="separator">/</span>
@@ -37,6 +37,9 @@ const navigateTo = (route) => {
 <style scoped>
 .news-container {
   padding: 20px;
+  margin: 0 auto; /* 預設大螢幕居中 */
+  width: 100%; /* 預設佔滿全寬 */
+  max-width: 65%; /* 大螢幕限制最大寬度 */
 }
 
 .separator {
@@ -45,5 +48,21 @@ const navigateTo = (route) => {
   font-weight: bold;
   display: flex;
   align-items: center; /* 確保 / 符號和按鈕對齊 */
+}
+
+@media (max-width: 768px) {
+  .news-container {
+    padding: 20px;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .q-page-container {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 </style>

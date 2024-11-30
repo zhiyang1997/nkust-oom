@@ -1,43 +1,45 @@
 <template>
-  <div class="news-title">
-    <h4>最新消息</h4>
-    <p>················</p>
-  </div>
-  <!-- 最新消息區域 -->
-  <div class="news-list">
-    <router-link
-      :to="{
-        name: 'news-detail',
-        params: { id: item.id },
-        query: { page: currentPage },
-      }"
-      v-for="(item, index) in paginatedNews"
-      :key="index"
-      class="news-item-link"
-    >
-      <div class="news-item">
-        <div class="news-photo">
-          <img
-            :src="getImageUrl(item.photo)"
-            alt="News Image"
-            class="news-image"
-          />
+  <div class="news-container">
+    <div class="news-title">
+      <h4>最新消息</h4>
+      <p>················</p>
+    </div>
+    <!-- 最新消息區域 -->
+    <div class="news-list">
+      <router-link
+        :to="{
+          name: 'news-detail',
+          params: { id: item.id },
+          query: { page: currentPage },
+        }"
+        v-for="(item, index) in paginatedNews"
+        :key="index"
+        class="news-item-link"
+      >
+        <div class="news-item">
+          <div class="news-photo">
+            <img
+              :src="getImageUrl(item.photo)"
+              alt="News Image"
+              class="news-image"
+            />
+          </div>
+          <div class="news-index">{{ item.id + 1 }}.{{ item.title }}</div>
+          <div class="news-date">{{ item.date }}</div>
         </div>
-        <div class="news-index">{{ item.id + 1 }}.{{ item.title }}</div>
-        <div class="news-date">{{ item.date }}</div>
-      </div>
-    </router-link>
-  </div>
-  <!-- 分頁元件 -->
-  <div class="pagination-container">
-    <q-pagination
-      v-model="currentPage"
-      :max="totalPages"
-      max-pages="5"
-      boundary-numbers
-      class="q-mt-lg"
-      color="grey"
-    />
+      </router-link>
+    </div>
+    <!-- 分頁元件 -->
+    <div class="pagination-container">
+      <q-pagination
+        v-model="currentPage"
+        :max="totalPages"
+        max-pages="5"
+        boundary-numbers
+        class="q-mt-lg"
+        color="grey"
+      />
+    </div>
   </div>
 </template>
 
@@ -183,6 +185,12 @@ const getImageUrl = (photo) => {
 </script>
 
 <style scoped>
+.news-container {
+  justify-content: center;
+  width: 65%; /* 預設桌面模式寬度 */
+  margin: auto;
+}
+
 .news-title {
   flex: 1;
   color: #343a40;
@@ -284,27 +292,26 @@ const getImageUrl = (photo) => {
   transition: background-color 0.3s ease, color 0.3s ease; /* 平滑過渡效果 */
 }
 
-/* RWD: 小螢幕調整樣式 */
+/* 小螢幕適配 */
 @media (max-width: 768px) {
-  .news-photo {
-    flex: 0 0 10%; /* 縮小圖片比例 */
-  }
-
-  .news-image {
-    max-width: 80px; /* 縮小圖片寬度 */
+  .news-container {
+    padding: 0;
+    margin: 0;
+    width: 100%;
   }
 
   .news-item {
-    padding: 5px; /* 減小項目內邊距 */
+    flex-direction: row;
+    align-items: flex-start;
   }
 
-  .news-index {
-    font-size: 12px; /* 縮小文字字體 */
+  .news-photo {
+    flex: 0 0 80px; /* 縮小圖片區域寬度 */
+    max-width: 80px; /* 確保圖片在小螢幕不超過60px寬 */
   }
 
-  .news-date {
-    font-size: 10px; /* 縮小日期字體 */
-    margin-left: 5px;
+  .news-image {
+    width: 100%; /* 保證圖片寬度撐滿 */
   }
 }
 </style>
