@@ -22,8 +22,4 @@ import NewsCompontent from "src/components/NewsCompontent.vue"; //最新消息�
 import MapCompontent from "src/components/MapCompontent.vue";
 </script>
 
-<style scoped>
-.news-container {
-  padding: 20px;
-}
-</style>
+<style scoped></style>
