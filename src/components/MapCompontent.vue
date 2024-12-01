@@ -491,6 +491,7 @@ h6 {
 
   .info-card {
     max-width: 100%; /* 卡片佔滿寬度 */
+    margin-bottom: 10%;
   }
   .s-map {
     display: flex; /* 使用 Flexbox */
