@@ -49,4 +49,13 @@ const navigateTo = (route) => {
   display: flex;
   align-items: center; /* 確保 / 符號和按鈕對齊 */
 }
+
+@media (max-width: 768px) {
+  .bg-grey-3 {
+    padding: 20px;
+    width: 100%;
+    margin: 0% auto;
+    height: 50px;
+  }
+}
 </style>

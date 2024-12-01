@@ -39,24 +39,32 @@
           <div class="vertical-line"></div>
           <div class="right-info">
             <div class="info-item">
-              <p class="item-label">電話：</p>
-              <p class="item-content">{{ info.phone }}</p>
+              <div class="item-label"><p>電話：</p></div>
+              <div class="item-content">
+                <p>{{ info.phone }}</p>
+              </div>
             </div>
             <div class="info-item">
-              <p class="item-label">信箱：</p>
-              <p class="item-content">{{ info.email }}</p>
+              <div class="item-label"><p>信箱：</p></div>
+              <div class="item-content">
+                <p>{{ info.email }}</p>
+              </div>
             </div>
             <div class="info-item">
-              <p class="item-label">工作項目：</p>
-              <ul class="item-content">
-                <li v-for="(task, index) in info.responsibility" :key="index">
-                  {{ task }}
-                </li>
-              </ul>
+              <div class="item-label"><p>工作項目：</p></div>
+              <div class="item-content">
+                <ul>
+                  <li v-for="(task, index) in info.responsibility" :key="index">
+                    {{ task }}
+                  </li>
+                </ul>
+              </div>
             </div>
             <div class="info-item">
-              <p class="item-label">代理人：</p>
-              <p class="item-content">{{ info.agent }}</p>
+              <div class="item-label"><p>代理人：</p></div>
+              <div class="item-content">
+                <p>{{ info.agent }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -76,20 +84,28 @@
           <div class="vertical-line"></div>
           <div class="right-info">
             <div class="info-item">
-              <p class="item-label">電話：</p>
-              <p class="item-content">{{ info.phone }}</p>
+              <div class="item-label"><p>電話：</p></div>
+              <div class="item-content">
+                <p>{{ info.phone }}</p>
+              </div>
             </div>
             <div class="info-item">
-              <p class="item-label">信箱：</p>
-              <p class="item-content">{{ info.email }}</p>
+              <div class="item-label"><p>信箱：</p></div>
+              <div class="item-content">
+                <p>{{ info.email }}</p>
+              </div>
             </div>
             <div class="info-item">
-              <p class="item-label">工作項目：</p>
-              <p class="item-content" v-html="info.responsibility"></p>
+              <div class="item-label"><p>工作項目：</p></div>
+              <div class="item-content">
+                <p v-html="info.responsibility"></p>
+              </div>
             </div>
             <div class="info-item">
-              <p class="item-label">代理人：</p>
-              <p class="item-content">{{ info.agent }}</p>
+              <div class="item-label"><p>代理人：</p></div>
+              <div class="item-content">
+                <p>{{ info.agent }}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -312,6 +328,12 @@ const navigateTo = (route) => {
     max-width: 100px; /* 設定最大寬度，根據需要調整 */
     font-weight: bold; /* 保持字體粗體 */
     font-size: 14px;
+  }
+  .info-item {
+    display: flex;
+    flex-direction: column; /* 改為垂直排列 */
+    align-items: flex-start; /* 垂直方向的對齊方式 */
+    margin-bottom: 10px;
   }
 }
 </style>
