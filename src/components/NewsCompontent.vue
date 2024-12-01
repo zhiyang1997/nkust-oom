@@ -189,6 +189,7 @@ const getImageUrl = (photo) => {
   justify-content: center;
   width: 65%; /* 預設桌面模式寬度 */
   margin: auto;
+  padding-bottom: 1%;
 }
 
 .news-title {
