@@ -135,13 +135,13 @@ const router = useRouter();
 const aboutInfo = reactive([
   {
     title: "高瑞鍾<br>處長",
-    image: "/img/people/zon.png",
+    image: "/img/people/kao.jpg",
     phone: "(07)3617141 轉 23131、23470",
     email: "jckao@nkust.edu.tw",
     position: [
       "國立高雄科技大學 經營管理處 處長",
       "國立高雄科技大學 教育事業暨產品推廣處 處長",
-      "國立高雄科技大學 海事產管所 教授",
+      "國立高雄科技大學 漁業科技與管理系 教授",
     ],
     education: "學經歷總表",
     responsibility: "綜理 經營管理處 業務。",

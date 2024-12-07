@@ -501,5 +501,11 @@ h6 {
     max-width: 80%; /* 限制最大寬度 */
     margin: auto; /* 保證居中對齊 */
   }
+  .button-container button {
+    font-size: 14px; /* 調整按鈕文字大小 */
+    padding: 8px 16px; /* 調整內邊距以適應文字大小 */
+    height: 35px; /* 減少按鈕高度 */
+    line-height: 16px; /* 確保文字垂直居中 */
+  }
 }
 </style>
