@@ -58,7 +58,7 @@
       <q-btn
         flat
         no-border
-        icon="menu"
+        :icon="isMenuOpen ? 'close' : 'menu'"
         style="font-size: 14px; margin-left: auto"
         v-if="isSmallScreen"
         @click="toggleMenu"
@@ -370,6 +370,17 @@ onMounted(() => {
     width: 100%; /* 設定寬度為 100% */
     margin: 0; /* 移除左右外邊距 */
     padding: 0; /* 移除內邊距，確保滿版 */
+  }
+
+  .menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
   }
 }
 </style>
