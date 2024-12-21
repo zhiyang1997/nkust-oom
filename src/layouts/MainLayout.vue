@@ -102,27 +102,19 @@
         >
           {{ item.label }}
 
-          <!-- 只渲染有 subItems 的下拉選單 -->
-          <q-menu
-            v-if="item.subItems"
-            v-model="menus[index]"
-            transition-show="scale"
-            transition-hide="scale"
-            @mouseenter="keepMenuOpen(index)"
-            @mouseleave="closeMenu(index)"
-          >
-            <q-list>
-              <q-item
-                clickable
-                v-close-popup
+          <!-- 自定義下拉選單 -->
+          <div v-if="item.subItems && menus[index]" class="dropdown-menu">
+            <ul>
+              <li
                 v-for="(subItem, subIndex) in item.subItems"
                 :key="subIndex"
+                class="dropdown-item"
                 @click="navigateTo(subItem.route)"
               >
-                <q-item-section>{{ subItem.label }}</q-item-section>
-              </q-item>
-            </q-list>
-          </q-menu>
+                {{ subItem.label }}
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </q-toolbar>
@@ -192,19 +184,13 @@ const toggleMenu = () => {
 const menus = ref(Array(navItems.value.length).fill(false));
 
 let closeTimeout = null;
-// 開啟指定索引的下拉選單
-const openMenu = (index) => {
-  clearTimeout(closeTimeout); // 清除任何之前設置的關閉延遲
 
-  // 關閉所有其他選單
-  menus.value = menus.value.map((_, i) => i === index);
+const openMenu = (index) => {
+  menus.value = menus.value.map((_, i) => i === index); // 打開當前選單，關閉其他選單
 };
 
-// 延遲關閉指定索引的下拉選單
 const closeMenu = (index) => {
-  closeTimeout = setTimeout(() => {
-    menus.value[index] = false;
-  }, 100); // 延遲100ms關閉
+  menus.value[index] = false; // 關閉當前選單
 };
 
 // 讓下拉選單在鼠標懸停時保持顯示
@@ -339,16 +325,13 @@ onMounted(() => {
 }
 
 .nav-item {
+  position: relative; /* 確保下拉選單相對於它定位 */
   margin: 0 6px; /* 控制li之間的間距 */
   padding: 8px 20px; /* 給li設置內邊距，讓點擊區域更大 */
   cursor: pointer;
   color: black; /* 預設字體顏色為黑色 */
   transition: background-color 0.3s, color 0.3s; /* 平滑變色過渡效果 */
-}
-
-.nav-item:hover {
-  background-color: #5c5c5c; /* 懸停時的背景色 */
-  color: white; /* 懸停時字體顏色變白 */
+  white-space: nowrap; /* 防止文字換行 */
 }
 
 .q-toolbar {
@@ -382,5 +365,50 @@ onMounted(() => {
     position: relative;
     cursor: pointer;
   }
+}
+
+/* 下拉選單容器 */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* 放置在導航項目的正下方 */
+  left: 0;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+  border-radius: 4px;
+  z-index: 100; /* 保證選單顯示在最上層 */
+  min-width: 200px; /* 設定最小寬度 */
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.dropdown-menu ul {
+  list-style: none; /* 移除圓點 */
+  margin: 0; /* 移除預設外邊距 */
+  padding: 0; /* 移除預設內邊距 */
+}
+
+/* 下拉選單項目 */
+.dropdown-item {
+  font-size: 14px; /* 調整字體大小 */
+  font-weight: normal; /* 調整字體粗細，normal 表示不是粗體 */
+  padding: 8px 16px; /* 調整內邊距，確保文字有適當的留白 */
+  color: black; /* 字體顏色，保持清晰 */
+  transition: background-color 0.3s ease; /* 添加滑鼠懸停時的過渡效果 */
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0; /* 滑鼠懸停背景色 */
+}
+
+.nav-item:hover {
+  background-color: #5c5c5c; /* 懸停時的背景色 */
+  color: white; /* 懸停時字體顏色變白 */
+}
+
+.nav-item .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
 }
 </style>
