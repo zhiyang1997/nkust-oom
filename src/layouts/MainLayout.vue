@@ -376,7 +376,7 @@ onMounted(() => {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加陰影 */
   border-radius: 4px;
   z-index: 100; /* 保證選單顯示在最上層 */
-  min-width: 200px; /* 設定最小寬度 */
+  min-width: 100px; /* 設定最小寬度 */
   padding: 10px 0;
   opacity: 0;
   visibility: hidden;
@@ -385,13 +385,13 @@ onMounted(() => {
 
 .dropdown-menu ul {
   list-style: none; /* 移除圓點 */
-  margin: 0; /* 移除預設外邊距 */
+  margin: 0 auto; /* 移除預設外邊距 */
   padding: 0; /* 移除預設內邊距 */
 }
 
 /* 下拉選單項目 */
 .dropdown-item {
-  font-size: 14px; /* 調整字體大小 */
+  font-size: 16px; /* 調整字體大小 */
   font-weight: normal; /* 調整字體粗細，normal 表示不是粗體 */
   padding: 8px 16px; /* 調整內邊距，確保文字有適當的留白 */
   color: black; /* 字體顏色，保持清晰 */
