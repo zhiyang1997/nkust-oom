@@ -109,7 +109,7 @@
                 v-for="(subItem, subIndex) in item.subItems"
                 :key="subIndex"
                 class="dropdown-item"
-                @click="navigateTo(subItem.route)"
+                @click.stop="navigateTo(subItem.route)"
               >
                 {{ subItem.label }}
               </li>
